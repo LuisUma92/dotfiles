@@ -1,8 +1,11 @@
 local lsp_zero = require('lsp-zero')
 
+<<<<<<< HEAD
 local cmp_action = lsp_zero.cmp_action()
 lsp_zero.extend_lspconfig()
 lsp_zero.extend_cmp()
+=======
+>>>>>>> 344530c (430FM old)
 
 lsp_zero.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -18,6 +21,7 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+<<<<<<< HEAD
 lsp_zero.set_sign_icons({
       error = '✘',
       warn = '▲',
@@ -43,6 +47,8 @@ lsp_zero.set_sign_icons({
 -- 	end
 -- end, {silent = true})
 
+=======
+>>>>>>> 344530c (430FM old)
 
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
@@ -54,12 +60,18 @@ require('mason').setup({
   }
 })
 require('mason-lspconfig').setup({
+<<<<<<< HEAD
   ensure_installed = {
     'typos_lsp',
+=======
+  -- ensure_installed = {
+  --   'typos_lsp',
+>>>>>>> 344530c (430FM old)
   --   'clangd',
   --   'eslint',
   --   'html',
   --   'jsonls',
+<<<<<<< HEAD
     'texlab',
   --   'marksman',
     'pyright',
@@ -70,6 +82,18 @@ require('mason-lspconfig').setup({
   --   'tsserver',
   --   'rust_analyzer'
     },
+=======
+  --   'texlab',
+  --   'marksman',
+  --   'pyright',
+  --   'pylsp',
+  --   'sqlls',
+  --   'lemminx',
+  --   'yamlls',
+  --   'tsserver',
+  --   'rust_analyzer'
+  --   },
+>>>>>>> 344530c (430FM old)
   automatic_installation = true,
   handlers = {
     lsp_zero.default_setup,
@@ -83,6 +107,7 @@ require('mason-lspconfig').setup({
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
+<<<<<<< HEAD
 local cmp_autopair = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
   'confirm_done',
@@ -98,10 +123,25 @@ cmp.setup({
     {name = 'vimtex'},
     {name = 'nvim_lsp_signature_help'}
     -- {name = 'buffer', keyword_length = 3},
+=======
+local cmp_action = lsp_zero.cmp_action()
+-- this is the function that loads the extra snippets to luasnip
+-- from rafamadriz/friendly-snippets
+require('luasnip.loaders.from_vscode').lazy_load()
+
+cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'nvim_lua'},
+    {name = 'luasnip', keyword_length = 2},
+    {name = 'buffer', keyword_length = 3},
+>>>>>>> 344530c (430FM old)
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+<<<<<<< HEAD
     ['<S-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<M-Tab>'] = cmp_action.luasnip_jump_forward(),
@@ -147,4 +187,34 @@ require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets/"})
 --           executable = ".venv/bin/flake8",
 --       },
 --   },
+=======
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+  }),
+})
+
+-- require("py_lsp").setup({
+--   host_python = "/usr/bin/python3f",
+--   default_venv_name = ".venv",
+--   language_server = "pylsp",
+--     source_strategies = {"poetry", "default", "system"},
+--     -- capabilities = capabilities,
+--     -- on_attach = on_attach,
+--     pylsp_plugins = {
+--         autopep8 = {
+--             enabled = true
+--         },
+--         pyls_mypy = {
+--             enabled = true
+--         },
+--         pyls_isort = {
+--             enabled = true
+--         },
+--         flake8 = {
+--             enabled = true,
+--             executable = ".venv/bin/flake8",
+--         },
+--     },
+>>>>>>> 344530c (430FM old)
 -- })

@@ -1,0 +1,49 @@
+{
+  "cSpell.dictionaryDefinitions": [
+    {
+      "name": "es.utf-8.spl",
+      "path": "/home/luis/.config/nvim/spell"
+    }
+  ],
+  "cSpell.dictionaries": [
+    "es.utf-8.spl"
+  ],
+  "cSpell.language": "es,en",
+  "cSpell.userWords": [
+    "alambre",
+    "algún",
+    "antihorario",
+    "bobina",
+    "comandos",
+    "corriente",
+    "cuál",
+    "cuáles",
+    "disminuye",
+    "disposición",
+    "encontrar",
+    "encuentra",
+    "espira",
+    "figura",
+    "gráfica",
+    "indique",
+    "inducida",
+    "instrumento",
+    "intervalo",
+    "magnitud",
+    "magnético",
+    "muestra",
+    "partida",
+    "positivo",
+    "propios",
+    "puedo",
+    "pulso",
+    "punto",
+    "razón",
+    "sentido",
+    "separación",
+    "siguiente",
+    "tiempo",
+    "tiene",
+    "velocidad"
+  ]
+}

@@ -1,7 +1,10 @@
 vim.keymap.set("n", "-", vim.cmd.Ex)
 
+<<<<<<< HEAD
 vim.keymap.set("n","<C-s>", ":b#<CR>")
 
+=======
+>>>>>>> 344530c (430FM old)
 -- Primeagen: move selected 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv'")
@@ -33,12 +36,31 @@ vim.keymap.set('n', '<leader>fs',
     builtin.grep_string({search = vim.fn.input("Grep > ")})
   end)
 
+<<<<<<< HEAD
 -- dwnzed buffers remaps
 vim.keymap.set('n', '<leader>bD', function() closeAllBuffers() end, { desc = '[B]uffer [D]elete all but current' })
 
 vim.keymap.set('n', '<leader>bd', ':bdelete<cr>', { desc = '[B]uffer [D]elete' })
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = '[B]uffer [N]ext' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = '[B]uffer [P]revious' })
+=======
+-- LuaSnips
+local ls = require("luasnip")
+vim.keymap.set({"i"}, "<C-i>",
+  function() ls.expand() end, {silent = true}
+  )
+vim.keymap.set({"i", "s"}, "<S-Tab>",
+  function() ls.jump( 1) end, {silent = true}
+  )
+vim.keymap.set({"i", "s"}, "<C-Tab>",
+  function() ls.jump(-1) end, {silent = true}
+  )
+-- vim.keymap.set({"i", "s"}, "<M-Tab>", function()
+-- 	if ls.choice_active() then
+--     s.change_choice(1)
+-- 	end
+-- end, {silent = true})
+>>>>>>> 344530c (430FM old)
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -149,6 +171,7 @@ vim.keymap.set("i", "<C-p>",
   end,
   {silent = true}
 )
+<<<<<<< HEAD
 -- Define a function to execute the command with the current highlighted line in netrw
 function OpenWithZathura()
   -- Get the current line under the cursor
@@ -210,3 +233,5 @@ vim.keymap.set('v', '<leader>i', ':lua WrapSelectedTextWithSI()<CR>')
 -- Define the key mapping
 vim.api.nvim_set_keymap('n', '<leader>z', ':lua OpenWithZathura()<CR>', { noremap = true, silent = true })
 
+=======
+>>>>>>> 344530c (430FM old)
