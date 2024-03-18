@@ -1,0 +1,24 @@
+%=====> Define header <==============================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhf{}
+
+%% LE: left even
+%% RO: right odd
+%% CE, CO: center even, center odd
+%% My name for when I print my lecture notes to use for an open book exam.
+%
+\makeatletter
+\fancyhead[RO,LE]{\textit{\@lecture}} % Right odd,  Left even
+\fancyhead[RE,LO]{\textit{\@author}}% Right even, Left odd
+%
+\fancyfoot[RO,LE]{\thepage }  % Right odd,  Left even
+\fancyfoot[RE,LO]{}          % Right even, Left odd
+\fancyfoot[C]{\sectionmark}     % Center
+%\cfoot{\thepage}
+\makeatother
+
+%====> Espacio para el encabezado <==================
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-0.15pt}
+

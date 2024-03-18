@@ -1,0 +1,17 @@
+{
+    "hola": "mundo",
+    "pregunta": {
+        "question" : "ok",
+        "answer" : "esto"
+    },
+    "por": "hola",
+    "preguntas": [
+        {
+            "question" : "masfg",
+            "answer" : "faf"
+        },{
+            "question" : "bueno ",
+            "answer" : "esto funciona"
+        }
+    ]
+}

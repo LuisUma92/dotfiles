@@ -1,0 +1,285 @@
+\documentclass[11pt, notitlepage, 
+twoside, %twocolumn,
+]{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{standalone}
+\usepackage{subfiles}
+\usepackage{C:/doc/Format}
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{example}[section] 
+================================<Counter Definition>
+\newcommand{\exa}{
+\refstepcounter{example}
+\vspace{0.7cm}\par\arabic{chapter}.\arabic{section}.\arabic{example}.\qquad 
+}
+%==========================> Redefine numering
+%\newcounter{myCha}
+%\newcounter{probl}[myCha]
+%\newcommand{\GFChap}[1]{
+%\stepcounter{myCha}
+%\vspace{2cm} \\\textbf{{\Large \arabic{myCha}.\qquad{#1}}} \vspace{1em}
+%}
+%\newcommand{\GFProb}{
+%\stepcounter{probl}
+%\par\textbf{ \arabic{myCha}.\arabic{probl}.\qquad}
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./tex/title.tex}
+\tableofcontents
+%\listoffigures
+%\listoftables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Introducción} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par El presente compilado de notas responde a 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  -
+%\input{./tex//C1S1-001.tex}
+%\input{./tex//C1S1-002.tex} 			% Ejemplos
+%\input{./solu//C1S1-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C1S2-001.tex}
+%\input{./tex//C1S2-002.tex} 			% Ejemplos
+%\input{./solu//C1S2-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C1S3-001.tex}
+%\input{./tex//C1S3-002.tex} 			% Ejemplos
+%\input{./solu//C1S3-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C1S4-001.tex}
+%\input{./tex//C1S4-002.tex} 			% Ejemplos
+%\input{./solu//C1S4-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  -
+%\input{./tex//C2S1-001.tex}
+%\input{./tex//C2S1-002.tex} 			% Ejemplos
+%\input{./solu//C2S1-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C2S2-001.tex}
+%\input{./tex//C2S2-002.tex} 			% Ejemplos
+%\input{./solu//C2S2-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C2S3-001.tex}
+%\input{./tex//C2S3-002.tex} 			% Ejemplos
+%\input{./solu//C2S3-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C2S4-001.tex}
+%\input{./tex//C2S4-002.tex} 			% Ejemplos
+%\input{./solu//C2S4-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  -
+%\input{./tex//C3S1-001.tex}
+%\input{./tex//C3S1-002.tex} 			% Ejemplos
+%\input{./solu//C3S1-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C3S2-001.tex}
+%\input{./tex//C3S2-002.tex} 			% Ejemplos
+%\input{./solu//C3S2-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C3S3-001.tex}
+%\input{./tex//C3S3-002.tex} 			% Ejemplos
+%\input{./solu//C3S3-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C3S4-001.tex}
+%\input{./tex//C3S4-002.tex} 			% Ejemplos
+%\input{./solu//C3S4-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  -
+%\input{./tex//C4S1-001.tex}
+%\input{./tex//C4S1-002.tex} 			% Ejemplos
+%\input{./solu//C4S1-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C4S2-001.tex}
+%\input{./tex//C4S2-002.tex} 			% Ejemplos
+%\input{./solu//C4S2-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C4S3-001.tex}
+%\input{./tex//C4S3-002.tex} 			% Ejemplos
+%\input{./solu//C4S3-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C4S4-001.tex}
+%\input{./tex//C4S4-002.tex} 			% Ejemplos
+%\input{./solu//C4S4-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  -
+%\input{./tex//C5S1-001.tex}
+%\input{./tex//C5S1-002.tex} 			% Ejemplos
+%\input{./solu//C5S1-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C5S2-001.tex}
+%\input{./tex//C5S2-002.tex} 			% Ejemplos
+%\input{./solu//C5S2-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C5S3-001.tex}
+%\input{./tex//C5S3-002.tex} 			% Ejemplos
+%\input{./solu//C5S3-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C5S4-001.tex}
+%\input{./tex//C5S4-002.tex} 			% Ejemplos
+%\input{./solu//C5S4-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  -
+%\input{./tex//C6S1-001.tex}
+%\input{./tex//C6S1-002.tex} 			% Ejemplos
+%\input{./solu//C6S1-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C6S2-001.tex}
+%\input{./tex//C6S2-002.tex} 			% Ejemplos
+%\input{./solu//C6S2-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C6S3-001.tex}
+%\input{./tex//C6S3-002.tex} 			% Ejemplos
+%\input{./solu//C6S3-003.tex} 			% Soluciones
+%=======<section> -  -
+%\input{./tex//C6S4-001.tex}
+%\input{./tex//C6S4-002.tex} 			% Ejemplos
+%\input{./solu//C6S4-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  - 
+%\input{./tex//C7S1-001.tex}
+%\input{./tex//C7S1-002.tex} 			% Ejemplos
+%\input{./solu//C7S1-003.tex} 			% Soluciones
+%=======<section> - - 
+%\input{./tex//C7S2-001.tex}
+%\input{./tex//C7S2-002.tex} 			% Ejemplos
+%\input{./solu//C7S2-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C7S3-001.tex}
+%\input{./tex//C7S3-002.tex} 			% Ejemplos
+%\input{./solu//C7S3-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C7S4-001.tex}
+%\input{./tex//C7S4-002.tex} 			% Ejemplos
+%\input{./solu//C7S4-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C7S5-001.tex}
+%\input{./tex//C7S5-002.tex} 			% Ejemplos
+%\input{./solu//C7S5-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  - 
+%\input{./tex//C8S1-001.tex}
+%\input{./tex//C8S1-002.tex} 			% Ejemplos
+%\input{./solu//C8S1-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C8S2-001.tex}
+%\input{./tex//C8S2-002.tex} 			% Ejemplos
+%\input{./solu//C8S2-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C8S3-001.tex}
+%\input{./tex//C8S3-002.tex} 			% Ejemplos
+%\input{./solu//C8S3-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C8S4-001.tex}
+%\input{./tex//C8S4-002.tex} 			% Ejemplos
+%\input{./solu//C8S4-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C8S5-001.tex}
+%\input{./tex//C8S5-002.tex} 			% Ejemplos
+%\input{./solu//C8S5-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  - 
+%\input{./tex//C9S1-001.tex}
+%\input{./tex//C9S1-002.tex} 			% Ejemplos
+%\input{./solu//C9S1-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C9S2-001.tex}
+%\input{./tex//C9S2-002.tex} 			% Ejemplos
+%\input{./solu//C9S2-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C9S3-001.tex}
+%\input{./tex//C9S3-002.tex} 			% Ejemplos
+%\input{./solu//C9S3-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C9S4-001.tex}
+%\input{./tex//C9S4-002.tex} 			% Ejemplos
+%\input{./solu//C9S4-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C9S5-001.tex}
+%\input{./tex//C9S5-002.tex} 			% Ejemplos
+%\input{./solu//C9S5-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======<section> -  - 
+%\input{./tex//C10S1-001.tex}
+%\input{./tex//C10S1-002.tex} 			% Ejemplos
+%\input{./solu//C10S1-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C10S2-001.tex}
+%\input{./tex//C10S2-002.tex} 			% Ejemplos
+%\input{./solu//C10S2-003.tex} 			% Soluciones
+%=======<section> -  - 
+%\input{./tex//C10S3-001.tex}
+%\input{./tex//C10S3-002.tex} 			% Ejemplos
+%\input{./solu//C10S3-003.tex} 			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\appendix %---------------------------------------->
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Problemas recomendados codigo AAAA} %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tex//CRS1-002.pdf}						% Enuncuado
+%\input{./tex//CRS1-003.tex}						% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Problemas recomendados codigo AAAA} %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tex//CRS2-002.pdf}						% Enuncuado 
+%\input{./tex//CRS2-003.tex}						% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Primer Parcial codigo AAAA} %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tex//CPS1-AAAA-002-codigo.pdf}			% Enuncuado 
+%\input{./tex//CPS1-AAAA-003-codigo.tex}			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Segundo Parcial codigo AAAA} %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tex//CPS2-AAAA-002-codigo.pdf}			% Enuncuado 
+%\input{./tex//CPS2-AAA-003-codigo.tex}				% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Tercer Parcial codigo AAAA} %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tex//CPS3-AAAA-002-codigo.pdf}			% Enuncuado 
+%\input{./tex//CPS3-AAAA-003-codigo.tex}			% Soluciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Solucionario (Libro-codigo biblio)}
+%\par A continuación se adjunto el solucionario de todos los ejercicios del libro \textit{Títilo} de Autor, edición \cite{}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tex//C1S0-003-537.6_G855i4.tex} %Soluciones del capítulo 1
+%\input{./tex//C2S0-003-537.6_G855i4.tex} %Soluciones del capítulo 2
+%\input{./tex//C3S0-003-537.6_G855i4.tex} %Soluciones del capítulo 3
+%\input{./tex//C4S0-003-537.6_G855i4.tex} %Soluciones del capítulo 4
+%\input{./tex//C5S0-003-537.6_G855i4.tex} %Soluciones del capítulo 5
+%\input{./tex/C6S0-003-537.6_G855i4.tex} %Soluciones del capítulo 6
+%\input{./tex//C7S0-003-537.6_G855i4.tex} %Soluciones del capítulo 7
+%\input{./tex//C8S0-003-537.6_G855i4.tex} %Soluciones del capítulo 8
+%\input{./tex//C9S0-003-537.6_G855i4.tex} %Soluciones del capítulo 9
+%\input{./tex//C10S0-003-537.6_G855i4.tex} %Soluciones del capítulo 10
+%\input{./tex//C11S0-003-537.6_G855i4.tex} %Soluciones del capítulo 11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography:
+%\clearpage
+\bibliography{C:/doc/Biblioteca}{}
+\bibliographystyle{is-unsrt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printindex
+\end{document}
