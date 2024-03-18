@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 return {
-  "nvim-treesitter/nvim-treesitter",
-=======
-return {"nvim-treesitter/nvim-treesitter",
->>>>>>> 344530c (430FM old)
+    {
+        "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         opts = {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -21,7 +18,7 @@ return {"nvim-treesitter/nvim-treesitter",
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
+        },
   highlight = {
     enable = true,
 

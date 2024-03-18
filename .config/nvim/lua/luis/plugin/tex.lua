@@ -23,10 +23,7 @@ return {
     --        --vim.cmd = [[hi Conceal ctermbg=none]]
     --    end
     --},
-<<<<<<< HEAD
     { 'saadparwaiz1/cmp_luasnip' },
-=======
->>>>>>> 344530c (430FM old)
     {
 	    "L3MON4D3/LuaSnip",
 	    -- follow latest release.
@@ -39,12 +36,7 @@ return {
       -- vimtex isn't required if using treesitter
       dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
       config = function()
-<<<<<<< HEAD
         require'luasnip-latex-snippets'.setup({ use_treesitter = true })
-=======
-        require'luasnip-latex-snippets'.setup()
-        -- or setup({ use_treesitter = true })
->>>>>>> 344530c (430FM old)
         require("luasnip").config.setup { enable_autosnippets = true }
         allow_on_markdown = true -- whether to add snippets to markdown filetype
       end,
