@@ -29,3 +29,4 @@ alias aoc='xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias AA='cd /home/luis/Documents/01-U/00-00AA-Apuntes'
+alias config='/usr/bin/git --git-dir=/home/luis/.cfg/ --work-tree=/home/luis'
