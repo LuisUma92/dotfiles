@@ -182,7 +182,6 @@ function WrapSelectedTextWithSI()
     -- Get the visual selection range
     local start_pos = vim.fn.getpos("'<")
     local end_pos = vim.fn.getpos("'>")
-    print(dump(start_pos),dump(end_pos))
     -- Get the selected text
     local selected_text = vim.api.nvim_buf_get_text(
         0,
@@ -191,14 +190,27 @@ function WrapSelectedTextWithSI()
         end_pos[2]-1,
         end_pos[3],
         {})
-    print(dump(selected_text))
 
+    local words = {}
+    local i = 1
 
+    for word in string.gmatch(selected_text[1], "(%w+)") do
+      words[i] = word
+      if i == 3 then
+        words[2] = words[2].."/"..word
+      end
+      i = i + 1
+    end
     -- Replace the selected text with \(\SI{...}{...}\)
-    -- local wrapped_text = "\\(\\SI{" .. table.concat(selected_text, "") .. "}{}\\)"
+    local wrapped_text = "\\(\\SI{" .. words[1] .. "}{" .. words[2] .."}\\)"
 
+    
+    -- local end_col = math.min(end_pos[3], #selected_text[#selected_text] + 1)
     -- Replace the selected text with the wrapped text
-    -- vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2], end_pos[3], {wrapped_text})
+    -- vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2], end_col, {})
+    
+    local end_col = math.min(end_pos[3], #wrapped_text + 1)
+    vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2]-1, end_col, {wrapped_text})
 
     -- Adjust the cursor position
     -- vim.fn.cursor(start_pos[2], start_pos[3] + 5)
