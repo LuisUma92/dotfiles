@@ -1,3 +1,25 @@
+if [ -f /etc/os-release ]; then
+    if grep -q "manjaro" /etc/os-release; then
+#the most pointless command... SSB melee time
+source ~/opt/melee.sh/melee.sh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+export PATH=/home/luis/.local/bin:$HOME/bin:/usr/local/bin:/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+alias AA='cd /home/luis/Documents/01-U/00-00AA-Apuntes'
+alias aoc='xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1'
+
+
+    else
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -114,4 +136,14 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+    fi
+else
+    echo "Cannot determine operating system."
+fi
+
+
+# Costume alias
+alias inkwatch='inkscape-figures watch'
+alias inkcomm='python3 /home/luis/opt/inkscape-shortcut-manager/main.py'
 alias config='/usr/bin/git --git-dir=/home/luis/.cfg/ --work-tree=/home/luis'
