@@ -1,6 +1,9 @@
 vim.keymap.set("n", "-", vim.cmd.Ex)
 
+-- Personal remaps
 vim.keymap.set("n","<C-s>", ":b#<CR>")
+vim.keymap.set("n", "<leader>ws", ":w<CR>:so<CR>", {desc = "save and source"})
+vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", {desc = "save from insert mode"})
 
 -- Primeagen: move selected 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'")
@@ -179,7 +182,6 @@ function OpenWithZathura()
   vim.cmd(command)
 end
 
-vim.keymap.set("n", "<leader>ws", ":w<CR>:so<CR>", {desc = "save and source"})
 
 function dump(o)
    if type(o) == 'table' then
