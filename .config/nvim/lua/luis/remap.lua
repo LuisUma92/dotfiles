@@ -196,48 +196,88 @@ function dump(o)
    end
 end
 
+-- \(\SI{1.35}{cm}\)
+-- \(\SI{1.35}{m/s}\)
+-- \(\SI{135}{m/s}\)
+-- \(\SI{2.45}{m/2}\)
 
 -- Define a function to wrap selected text with \(\SI{...}{...}\)
-function WrapSelectedTextWithSI()
-    -- Get the visual selection range
-    local start_pos = vim.fn.getpos("'<")
-    local end_pos = vim.fn.getpos("'>")
-    -- Get the selected text
-    local selected_text = vim.api.nvim_buf_get_text(
-        0,
-        start_pos[2]-1,
-        start_pos[3]-1,
-        end_pos[2]-1,
-        end_pos[3],
-        {})
+function WrapSelectedTextWithMath(SI)
+  -- Get the visual selection range
+  local start_pos = vim.fn.getpos("'<")
+  local end_pos = vim.fn.getpos("'>")
+  -- Get the selected text
+  local selected_text = vim.api.nvim_buf_get_text(
+      0,
+      start_pos[2]-1,
+      start_pos[3]-1,
+      end_pos[2]-1,
+      end_pos[3],
+      {})
+  local text_before = vim.api.nvim_buf_get_text(
+      0,
+      start_pos[2]-1,
+      0,
+      start_pos[2]-1,
+      start_pos[3]-1,
+      {})
+  local text_after = vim.api.nvim_buf_get_text(
+      0,
+      end_pos[2]-1,
+      end_pos[3],
+      end_pos[2]-1,
+      -1,
+      {})
 
-    local words = {}
-    local i = 1
+  local words = {}
+  local i = 1
 
-    for word in string.gmatch(selected_text[1], "(%w+)") do
-      words[i] = word
-      if i == 3 then
-        words[2] = words[2].."/"..word
-      end
-      i = i + 1
+  for word in string.gmatch(selected_text[1], "(%w+)") do
+    words[i] = word
+    i = i + 1
+  end
+
+  if i == 4 then
+    if string.find(words[2], "%a") == nil then
+      words[1] = words[1] .. "." .. words[2]
+      words[2] = words[3]
+    else
+      words[2] = words[2] .. "/" .. words[3]
     end
-    -- Replace the selected text with \(\SI{...}{...}\)
-    local wrapped_text = "\\(\\SI{" .. words[1] .. "}{" .. words[2] .."}\\)"
+  elseif i == 5 then
+    words[1] = words[1] .. "." .. words[2]
+    words[2] = words[3] .. "/" .. words[4]
+  end
+  -- Replace the selected text with \(\SI{...}{...}\)
+  local wrapped_text
+  if SI == true then
+    wrapped_text = text_before[1] .. "\\(\\SI{" .. words[1] .. "}{" .. words[2] .."}\\)" .. text_after[1]
+  else 
+    wrapped_text = text_before[1] .. "\\(" .. selected_text[1] .."\\)" .. text_after[1]
+  end 
+  -- local end_col = math.min(end_pos[3], #selected_text[#selected_text] + 1)
+  -- Replace the selected text with the wrapped text
+  vim.api.nvim_buf_set_text(0, start_pos[2] - 1, 0, end_pos[2], 0, {})
+  
+  local end_col =  #wrapped_text
+  -- vim.api.nvim_buf_set_text(
+  vim.api.nvim_buf_set_lines(
+  0,
+  start_pos[2]-1,
+  -- 0,
+  start_pos[2]-1,
+  -- end_col,
+  false,
+  {wrapped_text}
+  )
 
-    
-    -- local end_col = math.min(end_pos[3], #selected_text[#selected_text] + 1)
-    -- Replace the selected text with the wrapped text
-    -- vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2], end_col, {})
-    
-    local end_col = math.min(end_pos[3], #wrapped_text + 1)
-    vim.api.nvim_buf_set_text(0, start_pos[2] - 1, start_pos[3] - 1, end_pos[2]-1, end_col, {wrapped_text})
-
-    -- Adjust the cursor position
-    -- vim.fn.cursor(start_pos[2], start_pos[3] + 5)
+  -- Adjust the cursor position
+  -- vim.fn.cursor(start_pos[2], start_pos[3] + 5)
 end
 
 -- Define the key mapping for the function
-vim.keymap.set('v', '<leader>i', ':lua WrapSelectedTextWithSI()<CR>')
+vim.keymap.set('v', '<leader>i', ':lua WrapSelectedTextWithMath(true)<CR>')
+vim.keymap.set('v', '<leader>m', ':lua WrapSelectedTextWithMath(false)<CR>')
 
 -- Define the key mapping
 vim.api.nvim_set_keymap('n', '<leader>z', ':lua OpenWithZathura()<CR>', { noremap = true, silent = true })
