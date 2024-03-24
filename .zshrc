@@ -52,7 +52,7 @@ export INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH.
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git)
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,6 +108,9 @@ ENABLE_CORRECTION="true"
 plugins=(git)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# for inverse search latex 
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 # Costume alias
 alias inkwatch='inkscape-figures watch'
