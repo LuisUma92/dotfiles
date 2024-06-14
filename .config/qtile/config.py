@@ -357,17 +357,17 @@ layouts_theme = {
 layouts = [
     layout.Columns(**layouts_theme),
     layout.Max(**layouts_theme),
-    layout.MonadTall(**layouts_theme),
+    # layout.MonadTall(**layouts_theme),
     # Try more layouts by unleashing below layouts.
-    layout.Stack(num_stacks=2),
-    layout.Bsp(),
-    layout.Matrix(),
-    layout.MonadWide(),
-    layout.RatioTile(),
+    # layout.Stack(num_stacks=2),
+    # layout.Bsp(),
+    # layout.Matrix(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
     layout.Tile(),
     layout.TreeTab(),
-    layout.VerticalTile(),
-    layout.Zoomy(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
