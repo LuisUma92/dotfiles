@@ -32,9 +32,10 @@ from libqtile.config import Match, Screen
 from libqtile.lazy import lazy
 # from libqtile.utils import guess_terminal
 
-#elParaguayo
+# elParaguayo
 # from brightnesscontrol import BrightnessControl
 # bc = BrightnessControl()
+
 
 @hook.subscribe.startup_once
 def start_once():
@@ -230,19 +231,19 @@ keys = [
         lazy.spawn("zotero"),
         desc="open zotero"
         ),
-    Key([],"Print",
+    Key([], "Print",
         lazy.spawn("gnome-screenshot"),
         desc="Save screenshot to Pictures"
         ),
-    Key([mod],"Print",
+    Key([mod], "Print",
         lazy.spawn("gnome-screenshot -acf /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png"),
         desc="Save screenshot to clipboard"
         ),
-    Key(["control"],"Print",
+    Key(["control"], "Print",
         lazy.spawn("gnome-screenshot -a"),
         desc="Save screenshot to Pictures"
         ),
-    Key([mod,"control"],"Print",
+    Key([mod, "control"], "Print",
         lazy.spawn("gnome-screenshot -i"),
         desc="Save screenshot to Pictures"
         ),
@@ -271,36 +272,36 @@ keys = [
         desc="Next keyboard layout."
         ),
     Key([], "XF86MonBrightnessUp",
-       lazy.spawn("brightnessctl s +5%")
+        lazy.spawn("brightnessctl s +5%")
         # lazy.function(bc.brightness_up)
         ),
     Key([], "XF86MonBrightnessDown",
-       lazy.spawn("brightnessctl s 5%-")
+        lazy.spawn("brightnessctl s 5%-")
         # lazy.function(bc.brightness_down)
         ),
     Key([], "XF86AudioMute",
-       lazy.spawn("amixer -q set Master toggle")
-       ),
+        lazy.spawn("amixer -q set Master toggle")
+        ),
     Key([], "XF86AudioLowerVolume",
         lazy.spawn("amixer -q set Master 5%-")
         ),
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("amixer -q set Master 5%+")
         ),
-    Key([mod,"shift"],"o" ,
+    Key([mod, "shift"], "o",
         lazy.spawn("xrandr --output HDMI-1 --off")
-    ),
-    Key([mod, "control"],"o",
+        ),
+    Key([mod, "control"], "o",
         lazy.spawn("xrandr --output HDMI-1 --mode 1024x768 --right-of eDP-1"),
-        lazy.reload_config(),
+        lazy.spawn("nitrogen --restore"),
         desc="Set new monitor"
-    ),
-    Key([mod],"o",
+        ),
+    Key([mod], "o",
         lazy.spawn("xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1"),
-        lazy.reload_config(),
+        lazy.spawn("nitrogen --restore"),
         desc="Set new monitor"
-    ),
-    Key([mod,"shift"],"r",
+        ),
+    Key([mod, "shift"], "r",
         lazy.spawn("nitrogen --restore")
         )
 ]
@@ -325,76 +326,83 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc=f"Switch to & move focused window to group {i.name}"
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
+            Key([mod, "control"], i.name, lazy.window.togroup(i.name),
+                desc="move focused window to group {}".format(i.name)),
         ]
     )
 
 groups.append(
     ScratchPad(
-        'scratchpad',[
-        DropDown('yad', terminal + ' -e yad --calendar'),
-        DropDown('zen', terminal + ' -e zenity --calendar'),
-        DropDown('cal',"gnome-calendar")
-    ]
+        'scratchpad', [
+            DropDown('yad', terminal + ' -e yad --calendar'),
+            DropDown('zen', terminal + ' -e zenity --calendar'),
+            DropDown('cal', "gnome-calendar")
+        ]
     )
 )
 
-layouts_theme = {"border_width": 2,
-                 "margin": 5,
-                 "border_focus":nordColor["red"],
-                 "border_normal":nordColor["dim_blue"]
-                # "border_focus": "e1acff",
-                # "border_normal": "1D2330"
+layouts_theme = {
+        "border_width": 2,
+        "margin": 5,
+        "border_focus": nordColor["red"],
+        "border_normal": nordColor["dim_blue"]
+        # "border_focus": "e1acff",
+        # "border_normal": "1D2330"
     }
 
 layouts = [
     layout.Columns(**layouts_theme),
     layout.Max(**layouts_theme),
-    # layout.MonadTall(**layouts_theme),
+    layout.MonadTall(**layouts_theme),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.Stack(num_stacks=2),
+    layout.Bsp(),
+    layout.Matrix(),
+    layout.MonadWide(),
+    layout.RatioTile(),
+    layout.Tile(),
+    layout.TreeTab(),
+    layout.VerticalTile(),
+    layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font="inconsolata nerd font",
-    foreground = nordColor["dim_black"],
+    foreground=nordColor["dim_black"],
     fontsize=20,
     padding=6,
-)
+    )
+
+
 extension_defaults = widget_defaults.copy()
+
 
 def setBatteryIcon():
     icon = {
-        "10":"",
-        "20":"",
-        "30":"",
-        "40":"",
-        "50":"",
-        "60":"",
-        "70":"",
-        "80":"",
-        "90":"",
-        "100":"",
+        "10": "",
+        "20": "",
+        "30": "",
+        "40": "",
+        "50": "",
+        "60": "",
+        "70": "",
+        "80": "",
+        "90": "",
+        "100": "",
     }
     perc = 0.53
-    option = str(int( perc*100-perc*100%10 + 10))
+    option = str( int( perc * 100 - perc * 100 % 10 + 10 ) )
     str = icon[option]
     return str
 
-CLI =  widget.CurrentLayoutIcon()
+
+CLI = widget.CurrentLayoutIcon()
+
+
 GB = widget.GroupBox(
     disable_drag = True,
     inactive = nordColor["dim_cyan"],
@@ -406,20 +414,26 @@ GB = widget.GroupBox(
     this_current_screen_border = nordColor["bright_blue"],
     this_screen_border = nordColor["dim_blue"],
 )
+
+
 GB2 = widget.GroupBox(
-    disable_drag = True,
-    inactive = nordColor["dim_cyan"],
-    active = nordColor["white"],
-    highlight_method = "block", # 'border', 'block', 'text', or 'line'
+    disable_drag=True,
+    inactive=nordColor["dim_cyan"],
+    active=nordColor["white"],
+    highlight_method="block",  # 'border', 'block', 'text', or 'line'
     # highlight_color = ['000000', nordColor["red"]],
-    other_current_screen_border = nordColor["bright_green"],
-    other_screen_border = nordColor["dim_green"],
-    this_current_screen_border = nordColor["bright_blue"],
-    this_screen_border = nordColor["dim_blue"],
+    other_current_screen_border=nordColor["bright_green"],
+    other_screen_border=nordColor["dim_green"],
+    this_current_screen_border=nordColor["bright_blue"],
+    this_screen_border=nordColor["dim_blue"],
 )
+
+
 prompt = widget.Prompt()
-            # padding = -600,
-        # ),
+#             padding = -600,
+#         ),
+
+
 KBly = widget.KeyboardLayout(
             background = nordColor["red"],
             # foreground = nordColor["white"],
@@ -429,84 +443,132 @@ KBly = widget.KeyboardLayout(
             display_map = {"latam":"ES","us intl":"US"},
             configured_keyboards = ["latam","us intl"]
         )
+
+
 clock = widget.Clock(
             format="%d/%m %a %I:%M",
             background = nordColor["bright_yellow"],
             mouse_callbacks={"Button1": lazy.group['scratchpad'].dropdown_toggle('zen')},
         )
+
+
 netW = widget.Net(
-            # format = "{interface}:{down}↓↑{up}",
-            format = "{down}↓",
-            # foreground = nordColor["white"],
-            background = nordColor["green"],
+            # format="{interface}:{down}↓↑{up}",
+            format="{down:.2e}↓",
+            # foreground=nordColor["white"],
+            background=nordColor["green"],
         )
+
+
 MemG = widget.MemoryGraph(
-            background = nordColor["green"],
-            type = 'line',
-            line_width = 2,
-            margin_x = 0,
-            margin_y = 0,
-            border_width = 1,
-            frequency = 0.1,
-            graph_color = nordColor["magenta"]
+            background=nordColor["green"],
+            type='line',
+            line_width=2,
+            margin_x=0,
+            margin_y=0,
+            border_width=1,
+            frequency=0.1,
+            graph_color=nordColor["magenta"]
         )
+
+
 bat = widget.Battery(
             background = nordColor["magenta"],
             # foreground = nordColor["white"],
-            empty_char = "",
-            discharge_char = "",
-            charge_char = "",
-            full_char = "",
-            unknown_char = "",
-            low_foreground = nordColor["red"],
-            low_percentage = 0.2,
-            format = "{percent:2.0%}{char}",
+            empty_char="",
+            discharge_char="",
+            charge_char="",
+            full_char="",
+            unknown_char="",
+            low_foreground=nordColor["red"],
+            low_percentage=0.2,
+            format="{percent:2.0%}{char}",
         )
+
+
 quickE = widget.QuickExit(
-            background = nordColor["bright_black"],
-            default_text = "⏻",
-            countdown_format =  "{}s",
-            padding = 7
+            background=nordColor["bright_black"],
+            default_text="⏻",
+            countdown_format="{}s",
+            padding=7
         )
+
+
 WdwName = widget.WindowName(
-            empty_group_string = "                               ",
-            width = 300,
-            markup = False,
+            empty_group_string="                               ",
+            width=300,
+            markup=False,
             # padding = 300,
-            scroll = True,
+            scroll=True,
         )
+
+
 sysTray = widget.Systray(
-            background = nordColor["blue"],
+            background=nordColor["blue"],
         )
+
+
 mySpace = widget.Sep(
-    padding = 520,
-    linewidth = 0
+    padding=520,
+    linewidth=0
 )
+
 
 screens = [
     Screen(
         top=bar.Bar(
-            widgets= [CLI,GB,prompt,mySpace,KBly,clock,netW,MemG,sysTray,bat,quickE],
-            size = 22,
-            opacity = 0.95,
-            background = nordColor["black"]
+            widgets=[
+                CLI,
+                GB,
+                prompt,
+                mySpace,
+                KBly,
+                clock,
+                netW,
+                MemG,
+                sysTray,
+                bat,
+                quickE
+                ],
+            size=22,
+            opacity=0.95,
+            background=nordColor["black"]
         ),
     ),
     Screen(
         top=bar.Bar(
-            widgets= [CLI,GB2,KBly,clock,netW,MemG,bat,quickE,prompt],
-            size = 22,
-            opacity = 0.95,
-            background = nordColor["black"]
+            widgets=[
+                CLI,
+                GB2,
+                KBly,
+                clock,
+                netW,
+                MemG,
+                bat,
+                quickE,
+                prompt
+                ],
+            size=22,
+            opacity=0.95,
+            background=nordColor["black"]
         ),
     )
 ]
 
+
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Drag([mod], "Button1",
+         lazy.window.set_position_floating(),
+         start=lazy.window.get_position()
+         ),
+    Drag([mod], "Button3",
+         lazy.window.set_size_floating(),
+         start=lazy.window.get_size()
+         ),
+    Click([mod], "Button2",
+          lazy.window.bring_to_front()
+          ),
 ]
 
 dgroups_key_binder = None
