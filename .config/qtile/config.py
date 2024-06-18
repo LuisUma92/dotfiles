@@ -160,7 +160,12 @@ keys = [
         ),
     Key([mod], "space",
         lazy.layout.next(),
+        # lazy.group.next_window(),
         desc="Move window focus to other window"
+        ),
+    Key([mod, "shift"], "space",
+        lazy.group.prev_window(),
+        desc="Move window focus to previous window"
         ),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -217,6 +222,10 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab",
         lazy.next_layout(),
+        desc="Toggle between layouts"
+        ),
+    Key([mod, "shift"], "Tab",
+        lazy.prev_layout(),
         desc="Toggle between layouts"
         ),
     Key([mod], "c",
@@ -364,7 +373,7 @@ layouts = [
     # layout.Matrix(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    layout.Tile(),
+    # layout.Tile(),
     layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
