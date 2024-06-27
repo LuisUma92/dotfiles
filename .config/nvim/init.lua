@@ -1,1 +1,2 @@
 require("luis")
+require("snippets")

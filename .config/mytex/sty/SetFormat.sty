@@ -8,8 +8,8 @@
     letterpaper, 
     top=1.5cm, 
     bottom=1.5cm, 
-    left=1.905cm, 
-    right=1.905cm
+    left=2.5cm, 
+    right=2.5cm
     ]{geometry}
 \interdisplaylinepenalty=2500
 % Se puede establecer manualmente le indexado de la primera linea, si no se agrega el siguiente comando se usa el indexado default
@@ -163,6 +163,8 @@
 
 %====> Tablas <======================================
 
+\usepackage{booktabs}
+
 % Permite unir celdas de varias filas 
 % más información en https://www.ctan.org/pkg/multirow
 \usepackage{multirow}
@@ -202,6 +204,7 @@
 }
 
 %====> Design images <========================
+
 \usepackage{tikz}
 \usetikzlibrary{patterns,angles}
 \usetikzlibrary{calc,arrows,shapes.arrows,intersections,math}
@@ -283,8 +286,8 @@
     \setcounter{section}{#1}
     \section*{\@lecture}
     \addcontentsline{toc}{section}{\@lecture}
-    %\marginpar
-    {\small   #2  }
+    \marginpar
+    {\small  \textsf{\mbox{#2}} }
 }
 
 \newcommand{\homeworkfile}[2]{
@@ -311,6 +314,18 @@
     % \section*{ \@lecture }
     \section*{ \@shortlecture \@lecture \\ \@author}
     % \setcounter{section}{1}
+    \thispagestyle{plain}
+}
+\newcommand{\setlecture}[2]{
+    \setcounter{subsection}{0}
+    \ifthenelse{\isempty{#2}}{%
+        \def\@lecture{#1}%
+    }{%
+      \def\@lecture{#2 #1}%
+    }%
+    % \section*{ \@lecture }
+    % \section*{ \@lecture \\ \@author}
+    \setcounter{section}{#1}
     \thispagestyle{plain}
 }
 \makeatother
@@ -393,7 +408,7 @@
 \let\oldunit\unit
 \renewcommand{\unit}[1]{\:\oldunit{#1}}
 \let\olddd\dd
-\renewcommand{\dd}{\:\olddd}
+\renewcommand{\dd}[1]{\:\olddd #1}
 \newcommand{\then}{=}
 \newcommand{\ifpause}{}
 \newcommand{\ala}[1]{$^{#1}$}
