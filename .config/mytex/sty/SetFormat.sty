@@ -92,6 +92,7 @@
 % más información en https://www.ctan.org/pkg/siunitx
 \usepackage{siunitx}
 \DeclareSIUnit\angstrom{Å}
+% \AtBeginDocument{\RenewCommandCopy\qty\SI}
 
 % Negrita en cualquier texto matemático, mejor que la opción  \boldsymbol de ams
 \usepackage{bm}
@@ -346,6 +347,15 @@
     }
   }%
 }
+\newcommand{\exatitle}[1]{
+  \ifthenelse{\isundefined{\thechapter}}{%
+    \textbf{#1}
+    \addcontentsline{toc}{subsection}{\thesection.\theexample. #1}
+  }{%
+    \textbf{#1}
+    \addcontentsline{toc}{subsection}{\thechapter.\theexample. #1 }
+  }
+}%
 \newcommand{\exacs}[1]{%
   \setcounter{example}{#1}%
   \ifthenelse{\isundefined{\thechapter}}{%
@@ -387,6 +397,29 @@
 \newcommand{\then}{=}
 \newcommand{\ifpause}{}
 \newcommand{\ala}[1]{$^{#1}$}
+\newcommand{\nc}[2]{$^{#1}$#2}
+\newcommand{\ncm}[2]{^{#1}\text{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\question}[2]{
+  \item 
+  \addcontentsline{toc}{subsection}{Pregunta \theenumi}
+    #1
+  \ifthenelse{\boolean{solutions}}{
+    #2
+  }{}
+}
+\newcommand{\qpart}[2]{
+  \item
+  #1
+  \ifthenelse{\boolean{solutions}}{
+    \paragraph{Solución:}
+    #2
+  }{}
+}
+\newcommand{\pts}[1]{(\textit{#1 pts.})}
+\newcommand{\upt}{(\textit{1 pt.})}
+\newcommand{\uptcu}{(\textit{1 pt c/u.}))}
+\newcommand{\ptscu}[1]{(\textit{#1 pts c/u.})}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %==<My name>=================================
 \author{Luis Fernando Umaña Castro}
