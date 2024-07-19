@@ -1,2 +1,1 @@
 require("luis")
-require("snippets")
