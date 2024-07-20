@@ -270,7 +270,6 @@ function WrapSelectedTextWithMath(SI)
   false,
   {wrapped_text}
   )
-
   -- Adjust the cursor position
   -- vim.fn.cursor(start_pos[2], start_pos[3] + 5)
 end

@@ -37,7 +37,7 @@
 \setmainlanguage{spanish}
 % Paquete que carga automática los paquetes: fontspec (Paquete que permite abrir OpenType font), realscripts, metalogo .
 \usepackage{xltxtra}
-\setmainfont{Times New Roman}
+% \setmainfont{Times New Roman}
 % \setmainfont{Arial}
 % \setmainfont{MathJax_Script}
 %\setmonofont{Lucida Console}
@@ -45,8 +45,8 @@
 % Comando que permite que el texto escrito aquí se transfiera de forma fiel al PDF
 %\defaultfontfeatures{Mapping=tex-text}
 %\newfontfamily\VladScrip{Vladimir Script}
-\newfontfamily\arialFont{Arial}
-\newfontfamily\timesnrFont{Times New Roman}
+% \newfontfamily\arialFont{Arial}
+% \newfontfamily\timesnrFont{Times New Roman}
 
 % Puedo definir cuantos comandos como quiera
 %\newfontfamily\Chiller{Chiller}
@@ -69,6 +69,10 @@
 \definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
 \definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
 
+% Paquete que permite incluir direcciones web de forma segura
+% mas información en https://www.ctan.org/pkg/url
+\usepackage{url}
+
 %====> Letras y símbolos matemáticos <================
 
 % Paquete que mejora la presentación visual de las ecuaciones, proporciona
@@ -88,6 +92,19 @@
 % más información en https://www.ctan.org/pkg/siunitx
 \usepackage{siunitx}
 \DeclareSIUnit\angstrom{Å}
+% \AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+% Negrita en cualquier texto matemático, mejor que la opción  \boldsymbol de ams
+\usepackage{bm}
+
+% Permite el uso de símbolos y formatos de letras adicionales
+% como por ejemplo \mathscr{letras}
+\usepackage{mathrsfs}
+
+% Permite usar \mathds{letra}
+\usepackage{dsfont}
+
+% \AtBeginDocument{\RenewCommandCopy\qty\SI}
 
 % Negrita en cualquier texto matemático, mejor que la opción  \boldsymbol de ams
 \usepackage{bm}
@@ -188,7 +205,7 @@
 \usepackage{graphicx}
 \usepackage{graphics}
 
-\RequirePackage{pdfmanagement-testphase}
+% \RequirePackage{pdfmanagement-testphase}
 
 \graphicspath{{figures/}}
 % figure support
@@ -244,7 +261,7 @@
 
 % I use \dateparts here to hide the year (2019). This way, I can easily parse
 % the date of each lecture unambiguously while still having a human-friendly
-% short format printed to the pdf.
+% short format printed to the pdf. looped directory 
 
 \usepackage{xifthen}
 \newboolean{solutions}
@@ -346,22 +363,6 @@
       \hspace{0.8cm}\par\arabic{section}.\arabic{example}.\hspace{0.45mm} %
       \setcounter{section}{\thelastChapter}
     }
-  }{%
-    \ifblank{#1}{
-      \hspace{0.8cm}\par\arabic{chapter}.\arabic{example}.\hspace{0.45mm} %
-      }{
-      \setcounter{lastChapter}{\thechapter}
-      \setcounter{chapter}{#1}
-      \hspace{0.8cm}\par\arabic{chapter}.\arabic{example}.\hspace{0.45mm} %
-      \setcounter{chapter}{\thelastChapter}
-    }
-  }%
-}
-\newcommand{\exatitle}[1]{
-  \ifthenelse{\isundefined{\thechapter}}{%
-    \textbf{#1}
-    \addcontentsline{toc}{subsection}{\thesection.\theexample. #1}
-  }{%
     \textbf{#1}
     \addcontentsline{toc}{subsection}{\thechapter.\theexample. #1 }
   }

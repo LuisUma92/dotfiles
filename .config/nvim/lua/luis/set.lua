@@ -66,4 +66,3 @@ vim.g.netrw_liststyle= 3    -- show the tree listing
 -- Set the split windows to always be equal and open splits to the right
 --vim.g.netrw_winsize = 0         --   set default window size to be always equal
 vim.g.netrw_preview = 1		    --	open splits to the right
-
