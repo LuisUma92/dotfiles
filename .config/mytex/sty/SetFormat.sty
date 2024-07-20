@@ -37,7 +37,7 @@
 \setmainlanguage{spanish}
 % Paquete que carga automática los paquetes: fontspec (Paquete que permite abrir OpenType font), realscripts, metalogo .
 \usepackage{xltxtra}
-% \setmainfont{Times New Roman}
+\setmainfont{Times New Roman}
 % \setmainfont{Arial}
 % \setmainfont{MathJax_Script}
 %\setmonofont{Lucida Console}
@@ -69,10 +69,6 @@
 \definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
 \definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
 
-% Paquete que permite incluir direcciones web de forma segura
-% mas información en https://www.ctan.org/pkg/url
-\usepackage{url}
-
 %====> Letras y símbolos matemáticos <================
 
 % Paquete que mejora la presentación visual de las ecuaciones, proporciona
@@ -92,18 +88,6 @@
 % más información en https://www.ctan.org/pkg/siunitx
 \usepackage{siunitx}
 \DeclareSIUnit\angstrom{Å}
-% \AtBeginDocument{\RenewCommandCopy\qty\SI}
-
-% Negrita en cualquier texto matemático, mejor que la opción  \boldsymbol de ams
-\usepackage{bm}
-
-% Permite el uso de símbolos y formatos de letras adicionales
-% como por ejemplo \mathscr{letras}
-\usepackage{mathrsfs}
-
-% Permite usar \mathds{letra}
-\usepackage{dsfont}
-
 % \AtBeginDocument{\RenewCommandCopy\qty\SI}
 
 % Negrita en cualquier texto matemático, mejor que la opción  \boldsymbol de ams
@@ -363,6 +347,13 @@
       \hspace{0.8cm}\par\arabic{section}.\arabic{example}.\hspace{0.45mm} %
       \setcounter{section}{\thelastChapter}
     }
+  }
+}
+\newcommand{\exatitle}[1]{
+  \ifthenelse{\isundefined{\thechapter}}{%
+    \textbf{#1}
+    \addcontentsline{toc}{subsection}{\thesection.\theexample. #1}
+  }{
     \textbf{#1}
     \addcontentsline{toc}{subsection}{\thechapter.\theexample. #1 }
   }
