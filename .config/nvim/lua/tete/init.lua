@@ -1,0 +1,1 @@
+require("tete.templatescall")

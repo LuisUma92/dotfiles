@@ -174,10 +174,9 @@ vim.keymap.set("i", "<C-p>",
 function OpenWithZathura()
   -- Get the current line under the cursor
   local line_number = vim.fn.line('.')
-  
+
   -- Construct the command with the current line number
   local command = string.format(":!zathura %d", line_number)
-  
   -- Execute the command
   vim.cmd(command)
 end
