@@ -1,6 +1,9 @@
-\documentclass[11pt, notitlepage, 
-twoside, %twocolumn,
-]{book}
+\documentclass[
+  12pt,
+  notitlepage, 
+  twoside,
+  %twocolumn,
+  ]{book}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\AAfolder}{/home/luis/.config/mytex}
 \usepackage{\AAfolder/sty/SetFormat}
@@ -20,12 +23,20 @@ twoside, %twocolumn,
   {figures}
   % {\AMfolder/00FF-Figures/530_G433f4-Giancoli}
 }
-\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==< Main info >================================
+%\title{}
+%\date{}
+% Use with \lecture
+% \usepackage{\AAfolder/sty/HW-header}
+% \makeindex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Inicia documento>================================
 \begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./tex/title.tex}
+% \maketitle
 \tableofcontents
 %\listoffigures
 %\listoftables
@@ -41,7 +52,19 @@ twoside, %twocolumn,
 %\input{./tex//C1S1-002.tex} 			% Ejemplos
 %\input{./solu//C1S1-003.tex} 			% Soluciones
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \appendix %---------------------------------------->
+%==<Bibliografía>====================================
+%   Para la bibliografía se usa el gestor de
+% referencias bibtex. Toda la información de las
+% referencias se pone en un archivo aparte con la
+% terminación .bib y se agrega aquí
+%
+% \printbibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Apéndice>========================================
+%   Se puede crear apéndices que luego se pueden
+% referenciar con la etiqueta
+% \appendix
+% \section{Figuras \label{app:fig}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \chapter{Problemas recomendados } %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,10 +75,9 @@ twoside, %twocolumn,
 % libro 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bibliography:
-%\clearpage
-\bibliography{C:/doc/Biblioteca}{}
-\bibliographystyle{is-unsrt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Index>===========================================
 \printindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Fin del documento>===============================
 \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

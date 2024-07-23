@@ -8,5 +8,10 @@ vim.api.nvim_create_user_command('InitTestItem',
   {}
   )
 
+vim.api.nvim_create_user_command('InitMain',
+  '!xclip -sel clip < ~/.config/mytex/templates/00AA.tex',
+  {}
+  )
+
 
 
