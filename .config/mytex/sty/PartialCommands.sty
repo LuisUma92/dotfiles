@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{partialNumber}
+\newcommand{\thepartial}{}
+\newcommand{\setpartialnumber}[1]{
+  \setcounter{partialNumber}{#1}
+  \ifthenelse{#1 = 1}{
+    \renewcommand{\thepartial}{Primer }
+  }{
+    \ifthenelse{#1 = 2}{
+    \renewcommand{\thepartial}{Segundo }
+  }{
+    \ifthenelse{#1 = 3}{
+    \renewcommand{\thepartial}{Tercer }
+    }{
+    \renewcommand{\thepartial}{Cuarto }
+    }
+  }
+  }
+}
+\newcommand{\lecturename}
+\newcommand{\setlecture}[1]{
+  \ifthenelse{#1 = FS0210}{
+    \renewcommand{\lecturename}{FS-0210 Física General I}
+  }{
+  \ifthenelse{#1 = FS0310}{
+    \renewcommand{\lecturename}{FS-0310 Física General II}
+  }{
+  \ifthenelse{#1 = FS0410}{
+    \renewcommand{\lecturename}{FS-0410 Física General III}
+  }{
+  \ifthenelse{#1 = FS0230}{
+    \renewcommand{\lecturename}{FS-0230 Física I}
+  }{
+  \ifthenelse{#1 = FS0330}{
+    \renewcommand{\lecturename}{FS-0330 Física II}
+  }{
+  \ifthenelse{#1 = FS0430}{
+    \renewcommand{\lecturename}{FS-0430 Física III}
+  }{
+    \renewcommand{\lecturename}{#1}
+  } } } } } }
+}
+
+
+\newcommand{\question}[2]{
+  \item 
+  \addcontentsline{toc}{subsection}{Pregunta \theenumi}
+    #1
+  \ifthenelse{\boolean{solutions}}{
+    #2
+  }{}
+}
+\newcommand{\qpart}[2]{
+  \item
+  #1
+  \ifthenelse{\boolean{solutions}}{
+    \paragraph{Solución:}
+    #2
+  }{}
+}
+\newcommand{\ptsdistro}{
+  \paragraph{Distribución de puntos}
+  \renewcommand{\labelenumiv}{\theenumi\theenumiii-\arabic{enumiv})}
+}
+\newcommand{\pts}[1]{(\textit{#1 pts.})}
+\newcommand{\upt}{(\textit{1 pt.})}
+\newcommand{\uptcu}{(\textit{1 pt c/u.})}
+\newcommand{\ptscu}[1]{(\textit{#1 pts c/u.})}
+

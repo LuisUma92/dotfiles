@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Definición de portada y encabezados>=======================================
+
+% \lecture starts a new lecture (les in dutch) GillesCastel
+%
+% Usage:
+% \lecture{1}{di 12 feb 2019 16:00}{Inleiding}
+%
+% This adds a section heading with the number / title of the lecture and a
+% margin paragraph with the date.
+
+% I use \dateparts here to hide the year (2019). This way, I can easily parse
+% the date of each lecture unambiguously while still having a human-friendly
+% short format printed to the pdf. looped directory 
+
+
+%====> Get current chapter name header <=======================================
+% \newcommand{\currentMain}{}
+% % \ifthenelse{\isundefined{\chapter}}{%
+%     \let\oldchapter\section%
+%     \renewcommand{\section}[1]{%
+%         \@startsection {section}{1}{\z@}%
+%                        {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                        {2.3ex \@plus.2ex}%
+%                        {\normalfont\Large\bfseries}%
+%         \renewcommand{\currentMain}{#1}}%
+% % }{%
+% %     \let\oldchapter\chapter
+% %     \renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentMain}{#1}}
+% % }
+
+%\def\testdateparts#1{\dateparts#1\relax}
+%\def\dateparts#1 #2 #3 #4 #5\relax{
+%    \marginpar{\small   #1 #2 #3 #5  }
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Filetipes Definition>======================================================
+\makeatletter
+\def\@lecture{}%
+\newcommand{\lecture}[3]{
+    \setcounter{subsection}{0}
+    \ifthenelse{\isempty{#3}}{%
+        \def\@lecture{Lección #1}%
+    }{%
+        \def\@lecture{Lección #1: #3}%
+    }%
+    \setcounter{section}{#1}
+    \section*{\@lecture}
+    \addcontentsline{toc}{section}{\@lecture}
+    \marginpar
+    {\small  \textsf{\mbox{#2}} }
+}
+
+\newcommand{\homeworkfile}[2]{
+    \setcounter{subsection}{0}
+    \ifthenelse{\isempty{#2}}{%
+        \def\@lecture{Tarea #1}%
+    }{%
+        \def\@lecture{Tarea #1: #2}%
+    }%
+    % \section*{ \@lecture }
+    \section*{ \@lecture \\ \@author}
+    \setcounter{section}{#1}
+    \thispagestyle{plain}
+}
+\newcommand{\myfile}[2]{
+    \setcounter{subsection}{0}
+    \ifthenelse{\isempty{#2}}{%
+        \def\@shortlecture{#1}%
+        \def\@lecture{#1}%
+    }{%
+        \def\@shortlecture{#1: \\}%
+        \def\@lecture{#2}%
+    }%
+    % \section*{ \@lecture }
+    \section*{ \@shortlecture \@lecture \\ \@author}
+    % \setcounter{section}{1}
+    \thispagestyle{plain}
+}
+\newcommand{\setlecture}[2]{
+    \setcounter{subsection}{0}
+    \ifthenelse{\isempty{#2}}{%
+        \def\@lecture{#1}%
+    }{%
+      \def\@lecture{#2 #1}%
+    }%
+    % \section*{ \@lecture }
+    % \section*{ \@lecture \\ \@author}
+    \setcounter{section}{#1}
+    \thispagestyle{plain}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Counter Definition>========================================================
+\newcounter{lastEquation}
+\newcounter{lastChapter}
+\newcounter{example}[section] 
+
+\newcommand{\exa}[2][]{%
+  \ifblank{#2}{
+    \stepcounter{example}
+  }{
+    \setcounter{example}{#2}%
+  }
+  \ifthenelse{\isundefined{\thechapter}}{%
+    \ifblank{#1}{
+      \hspace{0.8cm}\par\arabic{section}.\arabic{example}.\hspace{0.45mm} %
+    }{
+      \setcounter{lastChapter}{\thesection}
+      \setcounter{section}{#1}
+      \hspace{0.8cm}\par\arabic{section}.\arabic{example}.\hspace{0.45mm} %
+      \setcounter{section}{\thelastChapter}
+    }
+  }
+}
+\newcommand{\exatitle}[1]{
+  \ifthenelse{\isundefined{\thechapter}}{%
+    \textbf{#1}
+    \addcontentsline{toc}{subsection}{\thesection.\theexample. #1}
+  }{
+    \textbf{#1}
+    \addcontentsline{toc}{subsection}{\thechapter.\theexample. #1 }
+  }
+}%
+\newcommand{\exacs}[1]{%
+  \setcounter{example}{#1}%
+  \ifthenelse{\isundefined{\thechapter}}{%
+    \hspace{0.8cm}\par\arabic{section}.\arabic{subsection}.\arabic{example}.\hspace{0.45mm} %
+  }{%
+    \hspace{0.8cm}\par\arabic{chapter}.\arabic{section}.\arabic{example}.\hspace{0.45mm} %
+  }%
+}
+%====> Redefine counters <===========================
+%\newcounter{myCha}
+%\newcounter{probl}[myCha]
+%\newcommand{\GFChap}[1]{
+%\stepcounter{myCha}
+%\vspace{2cm} \\\textbf{{\Large \arabic{myCha}.\qquad{#1}}} \vspace{1em}
+%
+%\newcommand{\GFProb}{
+%\stepcounter{probl}
+%\par\textbf{ \arabic{myCha}.\arabic{probl}.\qquad}
+%}
+% \renewcommand{\section}{%
+%   \@starsection{section}%
+%   {1}
+%   {0mm}
+%   {2ex plus 1ex minus 0.5ex}
+%   {\Large\bfseries}
+% }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Costum commands>=================================
+\newcommand{\scrp}[1]{\mbox{\scriptsize{#1}}}
+\newcommand{\vc}[1]{\vec{\bm{{#1}}}}
+\newcommand{\vm}[1]{\bm{{#1}}{}}
+\newcommand{\vh}[1]{\hat{\bm{{#1}}}}
+% \renewcommand{\sin}{\mbox{ sen}}
+\let\oldunit\unit
+\renewcommand{\unit}[1]{\:\oldunit{#1}}
+\let\olddd\dd
+\renewcommand{\dd}[1]{\:\olddd #1}
+\newcommand{\ala}[1]{$^{#1}$}
+\newcommand{\nc}[2]{$^{#1}$#2}
+\newcommand{\ncm}[2]{^{#1}\text{#2}}
+
