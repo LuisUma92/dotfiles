@@ -8,7 +8,5 @@ vim.api.nvim_create_user_command('InitTestItem',
   {}
   )
 
-vim.keymap.set('n', '<M-P>', ':InitPartial<CR>"+p<CR>')
-vim.keymap.set('n', '<M-I>', ':InitTestItem<CR>"+p<CR>')
 
 
