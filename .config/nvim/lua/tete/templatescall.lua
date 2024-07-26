@@ -13,5 +13,7 @@ vim.api.nvim_create_user_command('InitMain',
   {}
   )
 
-
-
+vim.api.nvim_create_user_command('InitText',
+  '!xclip -sel clip < ~/.config/mytex/templates/C0S0-000.tex',
+  {}
+  )

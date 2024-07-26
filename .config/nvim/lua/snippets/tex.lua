@@ -1,13 +1,13 @@
 local ls = require("luasnip")
 local s = ls.snippet
--- local sn = ls.snippet_node
+local sn = ls.snippet_node
 -- local isn = ls.indent_snippet_node
 local t = ls.text_node
 local i = ls.insert_node
 -- local f = ls.function_node
 -- local c = ls.choice_node
--- local d = ls.dynamic_node
--- local r = ls.restore_node
+local d = ls.dynamic_node
+local r = ls.restore_node
 -- local events = require("luasnip.util.events")
 -- local ai = require("luasnip.nodes.absolute_indexer")
 -- local extras = require("luasnip.extras")
@@ -28,21 +28,57 @@ local i = ls.insert_node
 
 return {
   s({
-    trig = "vh"
+    trig = "equa"
+  },{
+    t({"\\begin{equation}","  "}),
+    i(0),
+    t({"", "\\label{eq:"}),
+    r(1, "VISUAL"),
+    t({"}","\\end{equation}"})
+  }),
+  s({
+    trig = "dl254"
+  },{
+    t({"\\begin{dinglist}{254}","  \\item "}),
+    i(0),
+    t({"","\\end{dinglist}"})
+  }),
+  s({
+    trig = "dl228"
+  },{
+    t({"\\begin{dinglist}{228}","  \\item "}),
+    i(0),
+    t({"","\\end{dinglist}"})
+  }),
+  s({
+    trig = "dl43"
+  },{
+    t({"\\begin{dinglist}{43}","  \\item "}),
+    i(0),
+    t({"","\\end{dinglist}"})
+  }),
+  s({
+    trig = "vh",
+    wordTrig = false,
+    snippetType = "autosnippet"
   },{
     t({"\\vh{"}),
     i(1),
     t({"}"})
   }),
   s({
-    trig = "vc"
+    trig = "vc",
+    wordTrig = false,
+    snippetType = "autosnippet"
   },{
     t({"\\vc{"}),
     i(1),
     t({"}"})
   }),
   s({
-    trig = "ni"
+    trig = "--",
+    wordTrig = false,
+    snippetType = "autosnippet"
   },{
     t({"","\\item "}),
     i(1)
@@ -133,3 +169,5 @@ t({"","%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"})
   })
 }
+
+
