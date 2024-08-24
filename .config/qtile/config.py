@@ -310,6 +310,11 @@ keys = [
         lazy.spawn("nitrogen --restore"),
         desc="Set new monitor"
         ),
+    Key([mod, "shift"], "s",
+        lazy.spawn("xrandr --output HDMI-1 --mode 1920x1080 --same-as eDP-1"),
+        lazy.spawn("nitrogen --restore"),
+        desc="Set new monitor"
+        ),
     Key([mod, "shift"], "r",
         lazy.spawn("nitrogen --restore")
         )
