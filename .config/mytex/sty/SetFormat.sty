@@ -165,6 +165,11 @@
 % más información en https://www.ctan.org/pkg/multirow
 \usepackage{multirow}
 
+% Generate table from csv
+\usepackage{pgfplotstable} 
+\pgfplotstableset{col sep=comma}
+\pgfplotsset{compat=1.18}
+
 % Usted también puede definir su propios comandos
 % Este comando permite generar rápidamente una celda que une varias 
 % filas y que permite usar \\ como cambio de línea en la celda
@@ -348,6 +353,15 @@
       \setcounter{section}{#1}
       \hspace{0.8cm}\par\arabic{section}.\arabic{example}.\hspace{0.45mm} %
       \setcounter{section}{\thelastChapter}
+    }
+  }{
+    \ifblank{#1}{
+      \hspace{0.8cm}\par\arabic{chapter}.\arabic{example}.\hspace{0.45mm} %
+    }{
+      \setcounter{lastChapter}{\thechapter}
+      \setcounter{chapter}{#1}
+      \hspace{0.8cm}\par\arabic{chapter}.\arabic{example}.\hspace{0.45mm} %
+      \setcounter{chapter}{\thelastChapter}
     }
   }
 }
