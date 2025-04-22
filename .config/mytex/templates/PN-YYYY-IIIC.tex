@@ -8,6 +8,7 @@ openany
 \usepackage{\AAfolder/sty/SetFormat}
 \usepackage{\AAfolder/sty/ColorsLight}
 \usepackage{\AAfolder/sty/SetSymbols}
+\usepackage{\AAfolder/sty/PartialCommands}
 %==<Definir bibliiografía>=====================================================
 % En el siguiente comando se indica cuál es el archivo que tiene las referencias
 % \addbibresource{\AAfolder/bib/Biblioteca.bib}
@@ -21,19 +22,52 @@ openany
   {figures}
   % {\AMfolder/00FF-Figures/530_G433f4-Giancoli}
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setclass{FS0210}
 \setpartialnumber{1}
-\newcommand{\thecycle}{2024-II}
-\newcommand{\thegroup}{Grupo 2}
+\setcycle{2024-II}
+\setgroup{02}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\newsavebox{\tempbox}
+\sbox{\tempbox}{
+    \includegraphics[width=0.4\textwidth]{\AMfolder/00AA-Lectures/common/firma-horizontal-dos-lineas-rgb.png}
+  }%
+\fancyhf{}
+\setlength\headheight{74pt}%{117pt}
+\addtolength\topmargin{-72pt}
+\fancyhead[LO]{
+  \usebox{\tempbox}
+  }
+\fancyhead[RO]{%
+  \vbox to \ht\tempbox{%
+    \vfil
+    \includegraphics{\AMfolder/00AA-Lectures/common/efis.png}
+    \\
+    \textbf{\classname}
+    }%
+  }
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{empty}
+% \oddsidemargin=-0.25in
+% \evensidemargin=0pt
+% \textwidth=6.5in
+\topmargin=-1.25in%-0.25in
+% \headheight=0pt
+% \headsep=0pt
+\textheight=9.5in
+% \parindent=0pt                         % sin sangria
+% \parskip=9pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %==< Inicia documento>=========================================================
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{fancy}
 \begin{center}
-  {\LARGE Universidad de Costa Rica} \\
-  {\LARGE Escuela de Física} \medskip \\
-  {\LARGE \classname} \medskip \\
+  % {\LARGE Universidad de Costa Rica} \\
+  % {\LARGE Escuela de Física} \medskip \\
+  % {\LARGE \classname} \medskip \\
   {\large \thepartial} \hfill
   {\large \thecycle} % \medskip \\
 \end{center}
@@ -70,7 +104,7 @@ openany
   % resultado solicitado. No olvide que la respuesta es una frase final en la cual 
   % se responde a la pregunta del enunciado.
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}[1.]
     \input{TNNE000.tex}
     \ifbool{solutions}{\newpage\phantomsection}{}
@@ -78,7 +112,7 @@ openany
     \ifbool{solutions}{\newpage\phantomsection}{}
     \input{TNNE000.tex}
 \end{enumerate}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \ifthenelse{\boolean{solutions}}{}{
 %   \begin{figure}[h!]
 %     \centering
@@ -100,18 +134,21 @@ openany
 %     \end{subfigure}
 %   \end{figure}
 % }
-\newpage
-\phantomsection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+% \phantomsection
 % \begin{multicols}{2}
 % \input{Formulario4.tex}
 % \end{multicols}
-\includepdf[
-  addtotoc={
-    1, 
-    section,
-    1,
-    {Fórmulas del \thepartial - profesor (a)},
-    formulario
-  }
-  ]{formulario-P\thepartialNumber.pdf}
-\end{document}
+% \includepdf[
+%   addtotoc={
+%     1, 
+%     section,
+%     1,
+%     {Fórmulas del \thepartial - profesor (a)},
+%     formulario
+%   }
+%   ]{formulario-P\thepartialNumber.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

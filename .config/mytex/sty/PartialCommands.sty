@@ -17,30 +17,46 @@
   }
   }
 }
-\newcommand{\lecturename}
-\newcommand{\setlecture}[1]{
-  \ifthenelse{#1 = FS0210}{
-    \renewcommand{\lecturename}{FS-0210 Física General I}
+\newcommand{\classname}{}
+\newcommand{\setclass}[1]{
+  \ifthenelse{\equal{#1}{\string FS0121}}{
+    \renewcommand{\classname}{FS-0121 Fundamentos de Física}
   }{
-  \ifthenelse{#1 = FS0310}{
-    \renewcommand{\lecturename}{FS-0310 Física General II}
+  \ifthenelse{\equal{#1}{\string FS0210}}{
+    \renewcommand{\classname}{FS-0210 Física General I}
   }{
-  \ifthenelse{#1 = FS0410}{
-    \renewcommand{\lecturename}{FS-0410 Física General III}
+  \ifthenelse{\equal{#1}{\string FS0310}}{
+    \renewcommand{\classname}{FS-0310 Física General II}
   }{
-  \ifthenelse{#1 = FS0230}{
-    \renewcommand{\lecturename}{FS-0230 Física I}
+  \ifthenelse{\equal{#1}{\string FS0410}}{
+    \renewcommand{\classname}{FS-0410 Física General III}
   }{
-  \ifthenelse{#1 = FS0330}{
-    \renewcommand{\lecturename}{FS-0330 Física II}
+  \ifthenelse{\equal{#1}{\string FS0230}}{
+    \renewcommand{\classname}{FS-0230 Física I}
   }{
-  \ifthenelse{#1 = FS0430}{
-    \renewcommand{\lecturename}{FS-0430 Física III}
+  \ifthenelse{\equal{#1}{\string FS0330}}{
+    \renewcommand{\classname}{FS-0330 Física II}
   }{
-    \renewcommand{\lecturename}{#1}
-  } } } } } }
+  \ifthenelse{\equal{#1}{\string FS0430}}{
+    \renewcommand{\classname}{FS-0430 Física III}
+  }{
+    \renewcommand{\classname}{#1}
+  } } } } } } }
 }
 
+\newcommand{\thecycle}{0000-III}
+\newcommand{\setcycle}[1]{
+  \renewcommand{\thecycle}{#1}
+}
+\newcommand{\thegroup}{Grupo 00}
+\newcommand{\setgroup}[1]{
+  \renewcommand{\thegroup}{Grupo #1}
+}
+\newcommand{\testdefinition}[3]{
+  \setgroup{#1}
+  \setcycle{#2}
+  \setpartialnumber{#3}
+}
 
 \newcommand{\question}[2]{
   \item 
