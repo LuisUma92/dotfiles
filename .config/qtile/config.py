@@ -114,6 +114,14 @@ keys = [
         lazy.spawn(myBrowser),
         desc="Firefox"
         ),
+    Key([mod, "shift"], "b",
+        lazy.spawmcmd("bluetoothctl connect 18:B9:6E:C8:30:8B"),
+        desc="Connect to redmi buds"
+        ),
+    Key([mod, "control"], "b",
+        lazy.spawmcmd("bluetoothctl disconnect 18:B9:6E:C8:30:8B"),
+        desc="Disconnect redmi buds"
+        ),
     Key([mod], "f",
         lazy.spawn(myFileBrowser),
         desc="GUI file browser"
@@ -203,7 +211,7 @@ keys = [
         lazy.layout.grow_up(),
         desc="Grow window up"
         ),
-    Key([mod], "n",
+    Key([mod, "control"], "n",
         lazy.layout.normalize(),
         desc="Reset all window sizes"
         ),
@@ -311,11 +319,16 @@ keys = [
         desc="Set new monitor"
         ),
     Key([mod, "shift"], "s",
-        lazy.spawn("xrandr --output HDMI-1 --mode 1920x1080 --same-as eDP-1"),
+        lazy.spawn("xrandr --fb 1920x1080 --output eDP-1 --mode 1280x720 --scale-from 1920x1080 --output HDMI-1 --mode 1920x1080 --scale 1x1 --same-as eDP-1"),
         lazy.spawn("nitrogen --restore"),
         desc="Set new monitor"
         ),
-    Key([mod, "shift"], "r",
+    Key([mod], "n",
+        lazy.spawn("xrandr --fb 1366x768 --output eDP-1 --mode 1366x768 --scale 1x1 --output HDMI --off"),
+        lazy.spawn("nitrogen --restore"),
+        desc="Set new monitor"
+        ),
+    Key([mod, "shift"], "n",
         lazy.spawn("nitrogen --restore")
         )
 ]
