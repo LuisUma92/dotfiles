@@ -28,6 +28,19 @@ local r = ls.restore_node
 
 return {
   s({
+    trig="dd",
+    snippetType = "autosnippet"
+  },{
+    t("\\dd{"),i(0),t("}")
+  }),
+  s({
+    trig="bf",
+    snippetType = "autosnippet"
+  },{
+    t("\\textbf{"),i(0),t("}")
+  }),
+  s({trig="prime",wordTrig=false,snippetType = "autosnippet"},{t("^{\\prime}")}),
+  s({
     trig = "equa"
   },{
     t({"\\begin{equation}","  "}),
@@ -80,7 +93,7 @@ return {
     wordTrig = false,
     snippetType = "autosnippet"
   },{
-    t({"","\\item "}),
+    t({"","\\item"}),
     i(1)
   }),
   s({

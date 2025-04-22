@@ -1,7 +1,8 @@
 vim.keymap.set("n", "-", vim.cmd.Ex)
+vim.keymap.set("i", "<C-e>", "<Esc>")
 
 -- Personal remaps
-vim.keymap.set("n","<C-s>", ":b#<CR>")
+vim.keymap.set("n","<C-b>", ":b#<CR>")
 vim.keymap.set("n", "<leader>ws", ":w<CR>:so<CR>", {desc = "save and source"})
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", {desc = "save from insert mode"})
 
@@ -279,3 +280,20 @@ vim.keymap.set('v', '<leader>m', ':lua WrapSelectedTextWithMath(false)<CR>')
 
 -- Define the key mapping
 vim.api.nvim_set_keymap('n', '<leader>z', ':lua OpenWithZathura()<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>c', function ()
+  local line = vim.api.nvim_get_current_line()
+  local filename = line:match("{(.-)}")
+  if filename then
+    local file = io.open(filename, "w")
+    if file then
+      file:close()
+      print("Created file: " .. filename)
+    else
+      print("Error: Could not create file")
+    end
+  else
+    print("No text found inside")
+  end
+end
+)

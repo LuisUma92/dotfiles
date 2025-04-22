@@ -22,3 +22,8 @@ vim.api.nvim_create_user_command('InitBookExercise',
   '!xclip -sel clip < ~/.config/mytex/templates/book-C00S00P000.tex',
   {}
   )
+
+vim.api.nvim_create_user_command('InitArtFicha',
+  '!xclip -sel clip < ~/.config/mytex/templates/lect.tex',
+  {}
+  )
