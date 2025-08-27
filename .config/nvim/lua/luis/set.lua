@@ -36,10 +36,12 @@ vim.opt.smarttab = true -- insert spaces or tabs to go to the next
 vim.api.nvim_command("autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab")
+vim.api.nvim_command("autocmd FileType bib setlocal ts=2 sts=2 sw=2 expandtab")
+vim.api.nvim_command("autocmd FileType cpp setlocal ts=2 sts=2 sw=2 expandtab")
 
 vim.opt.wrap = true
 
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false

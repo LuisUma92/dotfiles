@@ -3,6 +3,11 @@ vim.api.nvim_create_user_command('InitPartial',
   {}
   )
 
+vim.api.nvim_create_user_command('InitPropousal',
+  '!xclip -sel clip < ~/.config/mytex/templates/PartialPropousal.tex',
+  {}
+  )
+
 vim.api.nvim_create_user_command('InitTestItem',
   '!xclip -sel clip < ~/.config/mytex/templates/TNNE000.tex',
   {}
@@ -27,3 +32,5 @@ vim.api.nvim_create_user_command('InitArtFicha',
   '!xclip -sel clip < ~/.config/mytex/templates/lect.tex',
   {}
   )
+
+

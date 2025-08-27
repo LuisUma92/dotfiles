@@ -27,6 +27,7 @@ import os
 import subprocess
 # from libqtile import qtile
 from libqtile import bar, layout, widget, hook
+from libqtile.widget.battery import BatteryStatus, BatteryState
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key
 from libqtile.config import Match, Screen
 from libqtile.lazy import lazy
@@ -99,7 +100,7 @@ keys = [
         desc="spotify for linux"
         ),
     Key([mod], "j",
-        lazy.spawn("alacritty -e 'java -jar ~/Downloads/firmador.jar'"),
+        lazy.spawn("alacritty -e 'firmador'"),
         desc="Firmador digital"
         ),
     Key([mod], "d",
@@ -365,12 +366,18 @@ for i in groups:
 groups.append(
     ScratchPad(
         'scratchpad', [
+            DropDown('pom', terminal + ' -e nvim -c TimerlyToggle'),
+            DropDown('zen', terminal + ' -e zenity --calendar'),
             DropDown('yad', terminal + ' -e yad --calendar'),
             DropDown('zen', terminal + ' -e zenity --calendar'),
             DropDown('cal', "gnome-calendar")
         ]
     )
 )
+
+keys.extend([Key([mod],"t",
+                lazy.group['scratchpad'].dropdown_toggle('pom')
+                 )])
 
 layouts_theme = {
         "border_width": 2,
@@ -392,15 +399,15 @@ layouts = [
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    layout.TreeTab(),
+    # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
-    font="inconsolata nerd font",
+    font="Noto Sans Mono",
     foreground=nordColor["dim_black"],
-    fontsize=20,
+    fontsize=16,
     padding=6,
     )
 
@@ -408,26 +415,98 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 
-def setBatteryIcon():
+def setBatteryIcon(perc, charging=False):
     icon = {
-        "10": "",
-        "20": "",
-        "30": "",
-        "40": "",
-        "50": "",
-        "60": "",
-        "70": "",
-        "80": "",
-        "90": "",
-        "100": "",
+        "10": "󰁺",
+        "20": "󰁻",
+        "30": "󰁼",
+        "40": "󰁽",
+        "50": "󰁾",
+        "60": "󰁿",
+        "70": "󰂀",
+        "80": "󰂁",
+        "90": "󰂁",
+        "100": "󰁹",
     }
-    perc = 0.53
-    option = str( int( perc * 100 - perc * 100 % 10 + 10 ) )
-    str = icon[option]
-    return str
+    if charging:
+        if perc < 0.14:
+            mychar = "󰂆"
+        elif perc < 0.28:
+            mychar = "󰂇"
+        elif perc < 0.43:
+            mychar = "󰂈"
+        elif perc < 0.57:
+            mychar = "󰂉"
+        elif perc < 0.71:
+            mychar = "󰂊"
+        elif perc < 0.86:
+            mychar = "󰂋"
+        else:
+            mychar = "󰂅"
+    else:
+        option = str( int( perc * 100 - perc * 100 % 10 + 10 ) )
+        mychar = icon[option]
+    return mychar
 
 
-CLI = widget.CurrentLayoutIcon()
+class MyBattery(widget.Battery):
+
+    def build_string(self, status:BatteryStatus):
+        if self.hide_threshold is not None and status.percent > self.hide_threshold:
+            return ""
+
+        if self.layout is not None:
+            if status.state == BatteryState.DISCHARGING and status.percent < self.low_percentage:
+                self.layout.colour = self.low_foreground
+                self.background = self.low_background
+            elif status.state == BatteryState.CHARGING:
+                self.layout.colour = self.charging_foreground or self.foreground
+                self.background = self.charging_background or self.normal_background
+            else:
+                self.layout.colour = self.foreground
+                self.background = self.normal_background
+
+        if status.state == BatteryState.CHARGING:
+            char = setBatteryIcon(status.percent, True)
+            # char = self.charge_char
+        elif status.state == BatteryState.DISCHARGING:
+            char = setBatteryIcon(status.percent)
+            # char = self.discharge_char
+        elif status.state == BatteryState.FULL:
+            if self.show_short_text:
+                return self.full_short_text
+            char = self.full_char
+        elif status.state == BatteryState.EMPTY or (
+            status.state == BatteryState.UNKNOWN and status.percent == 0
+        ):
+            if self.show_short_text:
+                return self.empty_short_text
+            char = self.empty_char
+        elif status.state == BatteryState.NOT_CHARGING:
+            char = self.not_charging_char
+        else:
+            char = self.unknown_char
+
+        hour = status.time // 3600
+        minute = (status.time // 60) % 60
+
+        return self.format.format(
+            char=char, percent=status.percent, watt=status.power, hour=hour, min=minute
+        )
+
+                # if status.state == BatteryState.DISCHARGING:
+            # char = setBatteryIcon(status.percent)
+#               # elif status.percent >= 1 or status.state == BatteryState.FULL:
+        #     char = '󰂅'
+        # elif status.state == BatteryState.EMPTY or \
+        #         (status.state == BatteryState.UNKNOWN and status.percent == 0):
+        #     char = '󰂑'
+        # else:
+        #     char = '󰂅'
+#       
+
+# CLI = widget.CurrentLayoutIcon()
+# CLI2 = widget.CurrentLayoutIcon()
 
 
 GB = widget.GroupBox(
@@ -467,8 +546,8 @@ KBly = widget.KeyboardLayout(
             # fmt = 'Keyboard: {}',
             padding = 5,
             option = None,
-            display_map = {"latam":"ES","us intl":"US"},
-            configured_keyboards = ["latam","us intl"]
+            display_map = {"us intl":"US","latam":"ES"},
+            configured_keyboards = ["us intl","latam"]
         )
 
 
@@ -481,7 +560,8 @@ clock = widget.Clock(
 
 netW = widget.Net(
             # format="{interface}:{down}↓↑{up}",
-            format="{down:.2e}↓",
+            format="{down:.2e}↓↑{up:.2e}",
+            # format="{down:.2e}↓",
             # foreground=nordColor["white"],
             background=nordColor["green"],
         )
@@ -498,24 +578,26 @@ MemG = widget.MemoryGraph(
             graph_color=nordColor["magenta"]
         )
 
-
-bat = widget.Battery(
-            background = nordColor["magenta"],
-            # foreground = nordColor["white"],
-            empty_char="",
-            discharge_char="",
-            charge_char="",
-            full_char="",
-            unknown_char="",
-            low_foreground=nordColor["red"],
-            low_percentage=0.2,
+bat = MyBattery(
             format="{percent:2.0%}{char}",
+            background = nordColor["magenta"],
+            low_foreground=nordColor["red"],
+            low_percentage=0.25,
+            empty_char="󰁺",
+            discharge_char="󰂃",
+            charge_char="󰂄",
+            full_char="󰁹",
+            unknown_char="󰂑",
+            show_short_text=False,
+            notify_below=0.25,
+            update_interval=15
         )
 
 
 quickE = widget.QuickExit(
             background=nordColor["bright_black"],
             default_text="⏻",
+            fontsize=21,
             countdown_format="{}s",
             padding=7
         )
@@ -536,7 +618,7 @@ sysTray = widget.Systray(
 
 
 mySpace = widget.Sep(
-    padding=520,
+    padding=350,
     linewidth=0
 )
 
@@ -545,7 +627,7 @@ screens = [
     Screen(
         top=bar.Bar(
             widgets=[
-                CLI,
+                # CLI,
                 GB,
                 prompt,
                 mySpace,
@@ -565,7 +647,7 @@ screens = [
     Screen(
         top=bar.Bar(
             widgets=[
-                CLI,
+                # CLI2,
                 GB2,
                 KBly,
                 clock,
@@ -602,7 +684,7 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True#False
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.

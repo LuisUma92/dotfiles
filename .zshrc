@@ -1,17 +1,14 @@
 if [ -f /etc/os-release ]; then
     if grep -q "manjaro" /etc/os-release; then
-#the most pointless command... SSB melee time
-source ~/opt/melee.sh/melee.sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/luis/.local/bin:$HOME/bin:/usr/local/bin:/usr/local/texlive/2023/bin/x86_64-linux:$PATH
-
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:/home/luis/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias AA='cd /home/luis/Documents/01-U/00-00AA-Apuntes'
-alias aoc='xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1'
+export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info$INFOPATH
 
 # Source manjaro-zsh-configuration
 if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
@@ -24,10 +21,10 @@ fi
     else
 # This is not manjaro
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/luis/.local/bin:$HOME/bin:/usr/local/bin:/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:/home/luis/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
-export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
-export INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH.
+export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info$INFOPATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Set list of themes to pick from when loading at random
@@ -140,7 +137,6 @@ plugins=(git)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias AA='cd /home/luis/Documents/01-U/00-00AA-Apuntes'
 # for inverse search latex 
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
@@ -148,3 +144,4 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 alias inkwatch='inkscape-figures watch'
 alias inkcomm='python3 /home/luis/opt/inkscape-shortcut-manager/main.py'
 alias config='/usr/bin/git --git-dir=/home/luis/.cfg/ --work-tree=/home/luis'
+alias inittexp='/home/luis/.config/mytex/inittex.sh'

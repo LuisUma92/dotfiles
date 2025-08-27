@@ -1,4 +1,6 @@
 local ls = require("luasnip")
+local utils = require("luasnip-latex-snippets.util.utils")
+local not_math = utils.not_math() -- pass true if using Treesitter
 local s = ls.snippet
 local sn = ls.snippet_node
 -- local isn = ls.indent_snippet_node
@@ -25,8 +27,24 @@ local r = ls.restore_node
 -- local parse = require("luasnip.util.parser").parse_snippet
 -- local ms = ls.multi_snippet
 -- local k = require("luasnip.nodes.key_indexer").new_key
+-- set a higher priority (defaults to 0 for most snippets)
+-- local snip = ls.parser.parse_snippet(
+--   { trig = "mk", name = "Math", condition = not_math, priority = 10 },
+--   "$ ${1:${TM_SELECTED_TEXT}} $$0"
+-- )
 
 return {
+  s({
+    trig="ss"
+  },{
+    t("\\scrp{"),i(0),t("}")
+  }),
+  s({
+    trig="gg",
+    snippetType = "autosnippet"
+  },{
+    t("\\gls{"),i(0),t("}")
+  }),
   s({
     trig="dd",
     snippetType = "autosnippet"

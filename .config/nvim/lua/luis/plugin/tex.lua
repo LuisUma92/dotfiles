@@ -9,7 +9,33 @@ return {
         --vim.g.vimtex_view_general_options = [[--unique file:@pdf\#src:@line@tex]]
    	    -- vim.g.vimtex_view_general_viewer = "evince"
    	    vim.g.vimtex_quickfix_mode = 0
-   	    vim.g.vimtex_compiler_latexmk_engines = {_ = "-xelatex"}
+   	    vim.g.vimtex_compiler_latexmk_engines = {
+           _                = '-lualatex',
+           pdfdvi           = '-pdfdvi',
+           pdfps            = '-pdfps',
+           pdflatex         = '-pdf',
+           luatex           = '-lualatex',
+           lualatex         = '-lualatex --shell-escape',
+           xelatex          = '-xelatex'
+        }
+        -- vim.g.vimtex_compiler_latexmk = {
+        --   aux_dir = 'TexAuxDir',
+        --   out_dir = '',
+        --   callback = 1,
+        --   continuous = 1,
+        --   executable = 'latexmk',
+        --   hooks = {},
+        --   options = {
+        --     '-verbose',
+        --     '-file-line-error',
+        --     '-synctex=1',
+        --     '-interaction=nonstopmode',
+        --   },
+        -- }
+        vim.g.vimtex_toc_config = {
+          split_pos = ':vert :botright',
+          split_width = 50
+        }
    	    vim.g.tex_indent_items = 0
    	    vim.g.tex_indent_brace = 0
    	    vim.g.tex_indent_and = 0
@@ -36,7 +62,7 @@ return {
       -- vimtex isn't required if using treesitter
       dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
       config = function()
-        require'luasnip-latex-snippets'.setup({ use_treesitter = true })
+        require'luasnip-latex-snippets'.setup()--{ use_treesitter = true })
         require("luasnip").config.setup { enable_autosnippets = true }
         allow_on_markdown = true -- whether to add snippets to markdown filetype
       end,

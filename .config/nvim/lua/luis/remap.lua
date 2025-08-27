@@ -1,3 +1,4 @@
+vim.keymap.set("n","<leader>t", ":TimerlyToggle<CR>")
 vim.keymap.set("n", "-", vim.cmd.Ex)
 vim.keymap.set("i", "<C-e>", "<Esc>")
 
@@ -290,7 +291,7 @@ vim.keymap.set('n', '<leader>c', function ()
       file:close()
       print("Created file: " .. filename)
     else
-      print("Error: Could not create file")
+      print("Error: Could not create file: " .. filename)
     end
   else
     print("No text found inside")
