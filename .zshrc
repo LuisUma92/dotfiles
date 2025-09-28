@@ -1,0 +1,10 @@
+
+. "$HOME/.local/share/../bin/env"
+
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
+export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
+
+alias set432fm="sh /hole/luis/.local/share/umas/set432fm.sh"
+alias config='/usr/bin/git --git-dir=/home/luis/.cfg/ --work-tree=/home/luis'
+alias inittexp='/home/luis/.config/mytex/inittex.sh'
