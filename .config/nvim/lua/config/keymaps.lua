@@ -5,8 +5,10 @@
 vim.keymap.set("i", "<C-e>", "<Esc>")
 vim.keymap.set("n", "<C-b>", ":b#<CR>")
 vim.keymap.set("n", "<leader>ws", ":w<CR>:so<CR>", { desc = "save and source" })
-vim.keymap.set("i", "<C-s>", "<Esc>:w", { desc = "save from insert mode" })
+vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "save from insert mode" })
+vim.keymap.set("i", "<C-d>", "<Esc>ddkA", { desc = "remove line" })
 
+vim.keymap.set("n", "<leader>tp", ":TimerlyToggle<CR>", { desc = "Toggle pomodoro" })
 -- replace the word where you where
 vim.keymap.set("n", "<leader>sz", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 

@@ -82,10 +82,10 @@
     \renewcommand{\theunishort}{UCR}
     \renewcommand{\theschool}{Escuela de Física}
     \savebox{\ulogo}{
-	    \includegraphics[width=0.5\textwidth]{\mytex/img/ucr/logo-ucr.png}
+	    \includegraphics[width=0.4\textwidth]{\mytex/img/ucr/firma-horizontal-dos-lineas-cmky.png}
     }
     \savebox{\schoollogo}{
-	    \includegraphics[width=0.5\textwidth]{\mytex/img/ucr/efis/efis.png}
+	    \includegraphics[width=0.2\textwidth]{\mytex/img/ucr/efis/efis.png}
     }
   }
   \newcommand{\ucimed}{
@@ -100,9 +100,9 @@
   \newcommand{\ufide}{
     \renewcommand{\theuni}{Universidad Fidélitas}
     \renewcommand{\theunishort}{UFide}
-    \renewcommand{\theschool}{Escuela de Ciencias Básicas}
+    \renewcommand{\theschool}{Ciencias Básicas}
     \savebox{\ulogo}{
-	    \includegraphics[width=0.5\textwidth]{\mytex/img/ufide/ufidelitas.png}
+	    \includegraphics[width=0.3\textwidth]{\mytex/img/ufide/ufidelitas.png}
     }
     \savebox{\schoollogo}{}
   }
@@ -110,34 +110,34 @@
   \newcommand{\classname}{}
   \newcommand{\classcode}{}
   \newcommand{\setclass}[1]{
-    \renewcommand{classcode}{#1}
+    \renewcommand{\classcode}{#1}
     \ifthenelse{\equal{#1}{FS0121}}{
       \renewcommand{\classname}{FS-0121 Fundamentos de Física}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{FS0210}}{
       \renewcommand{\classname}{FS-0210 Física General I}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{FS0310}}{
       \renewcommand{\classname}{FS-0310 Física General II}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{FS0410}}{
       \renewcommand{\classname}{FS-0410 Física General III}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{FS0230}}{
       \renewcommand{\classname}{FS-0230 Física I}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{FS0330}}{
       \renewcommand{\classname}{FS-0330 Física II}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{FS0430}}{
       \renewcommand{\classname}{FS-0430 Física III}
-      \ucr
+      \efis
     }{
     \ifthenelse{\equal{#1}{CB9}}{
       \renewcommand{\classname}{Física para Ciencias Médicas}
@@ -146,7 +146,7 @@
       \renewcommand{\classname}{#1}
   } } } } } } } }
   }
-  
+
   \newcommand{\thecycle}{0000-III}
   \newcommand{\setcycle}[1]{
     \renewcommand{\thecycle}{#1}

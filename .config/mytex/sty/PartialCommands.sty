@@ -35,3 +35,23 @@
 \newcommand{\uptcu}{(\textit{1 pt c/u.})}
 \newcommand{\ptscu}[1]{(\textit{#1 pts c/u.})}
 
+\newcommand{\topics}{}
+\newcommand{\settopics}[1]{
+  \renewcommand{\topics}{#1}
+}
+\newcommand{\rightoption}{
+  \ifthenelse{\boolean{solutions}}{{\color{blue}\ding{51}}}{}
+}
+\newcommand{\partialenumi}{
+  \ifthenelse{\equal{\theunishort}{UFide}}{
+    \renewcommand{\labelenumi}{\textbf{Desempeño \arabic{enumi}.}}
+  }{
+    \renewcommand{\labelenumi}{\arabic{enumi}.}
+  }
+}
+\newcommand{\setthisindent}{
+  \ifthenelse{\equal{\theunishort}{UFide}}{
+    \setlength{\itemindent}{+1in}
+  }{
+  }
+}

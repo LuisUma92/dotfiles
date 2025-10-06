@@ -59,7 +59,7 @@
        state="1" />
     <group
        id="scrollbars"
-       state="1" />
+       state="0" />
   </group>
   <group
      id="focus">
@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="116.059966800721"
-         height="41.6015625000006" />
+         width="123.020461675691"
+         height="23.0957956389179" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -155,8 +155,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="65.3490297813115"
-         ry="65.3490297813115" />
+         rx="91.40625"
+         ry="91.40625" />
       <eventcontext
          id="star"
          magnitude="5"
@@ -581,7 +581,7 @@
        id="toolbox" />
     <group
        id="fillstroke"
-       page="1" />
+       page="2" />
     <group
        id="filtereffects" />
     <group
@@ -591,7 +591,7 @@
        applyseparately="0" />
     <group
        id="align"
-       objects-align-to="selection" />
+       objects-align-to="last" />
     <group
        id="xml"
        h="500"
@@ -610,7 +610,7 @@
     <group
        id="preferences"
        state="1"
-       page="48" />
+       page="35" />
     <group
        id="gradienteditor" />
     <group
@@ -627,10 +627,10 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.svg.inkscape"
+       default="org.inkscape.output.pdf.cairorenderer"
        append_extension="1"
        enable_preview="1"
-       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/Ufide-0225/lectures/2025-IIIC"
+       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/Ufide-0430/lectures/2025-III"
        use_current_dir="1"
        enable_svgexport="0" />
     <group
@@ -642,7 +642,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/luis/Downloads/" />
+       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/Ufide-0430/lectures/2024-III/" />
     <group
        id="import"
        enable_preview="1"
@@ -739,7 +739,7 @@
        value="36" />
     <group
        id="cursortolerance"
-       value="8.0" />
+       value="8" />
     <group
        id="dragtolerance"
        value="4.0" />
@@ -990,7 +990,12 @@
     <group
        id="snapping"
        snap-global-toggle="1"
-       snap-bbox-center="1" />
+       snap-bbox-center="1"
+       snap-grid="0"
+       snap-others="1"
+       snap-alignment="0"
+       snap-rotation-center="0"
+       snap-object-midpoint="1" />
     <group
        id="cleanupswatches"
        value="1" />
@@ -1011,17 +1016,34 @@
      org.inkscape.print.wmf.FixPPTDashLine="0"
      org.inkscape.print.wmf.FixPPTGrad2Polys="0"
      org.inkscape.print.wmf.FixPPTPatternAsHatch="0"
-     org.inkscape.print.wmf.textToPath="1" />
+     org.inkscape.print.wmf.textToPath="1"
+     org.inkscape.template.paper.max="42.0"
+     org.inkscape.template.paper.min="30.0"
+     org.inkscape.template.paper.unit="in"
+     org.inkscape.template.paper.orientation="land"
+     org.inkscape.template.video.height="4320.0"
+     org.inkscape.template.video.unit="px"
+     org.inkscape.template.video.width="7680.0"
+     org.inkscape.template.social.height="720.0"
+     org.inkscape.template.social.unit="px"
+     org.inkscape.template.social.width="720.0"
+     org.inkscape.template.digital.height="768.0"
+     org.inkscape.template.digital.unit="px"
+     org.inkscape.template.digital.width="1024.0"
+     org.inkscape.template.other.size="512.0"
+     org.inkscape.template.other.unit="px"
+     org.inkscape.print.wmf.destination="/home/luis/.cache/inkscape-clipboard-export"
+     org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5" />
   <group
      id="desktop"
-     style="fill:#ff00ff;text-orientation:auto;stroke-width:1.0015748;stroke:#ff0000;font-size:16px">
+     style="fill:none;text-orientation:auto;stroke-width:2.51338583;font-size:10.66666667px;fill-opacity:0.46689659;stroke:#008000">
     <group
-       width="990"
-       height="950"
+       width="1896"
+       height="1030"
        x="0"
        y="0"
        maximized="1"
-       fullscreen="1"
+       fullscreen="0"
        id="geometry" />
     <group
        id="XYfront" />

@@ -1,6 +1,7 @@
 local ls = require("luasnip")
 local utils = require("luasnip-latex-snippets.util.utils")
 local s = ls.snippet
+local sa = ls.extend_decorator.apply(ls.snippet, {}) --[[@as function]]
 -- local sn = ls.snippet_node
 -- local isn = ls.indent_snippet_node
 local t = ls.text_node
@@ -33,11 +34,27 @@ local r = ls.restore_node
 -- )
 local pipe = utils.pipe
 local is_math = utils.with_opts(utils.is_math, true)
+local no_backslash = utils.no_backslash
 local not_math = utils.with_opts(utils.not_math, true)
 
 return {
+  sa(
+    {
+      trig = "(%a+)vc",
+      wordTrig = false,
+      regTrig = true,
+      name = "vec",
+      snippetType = "autosnippet",
+      condition = pipe({ is_math, no_backslash }),
+      priority = 100,
+    },
+    f(function(_, snip)
+      return string.format("\\vec{%s}", snip.captures[1])
+    end, {})
+  ),
   s({
     trig = "ss",
+    condition = pipe({ is_math }),
   }, {
     t("\\scrp{"),
     i(0),
@@ -52,32 +69,91 @@ return {
     t("}"),
   }),
   s({
+    trig = "ii",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\hat{\\imath}"),
+    i(0),
+  }),
+  s({
+    trig = "jj",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\hat{\\jmath}"),
+    i(0),
+  }),
+  s({
+    trig = "kk",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\hat{k}"),
+    i(0),
+  }),
+  s({
+    trig = "nmm",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\num{"),
+    i(1),
+    t("}"),
+    i(0),
+  }),
+  s({
     trig = "dd",
     snippetType = "autosnippet",
     wordTrig = false,
     condition = pipe({ is_math }),
   }, {
     t("\\dd{"),
-    i(0),
+    i(1),
     t("}"),
+    i(0),
+  }),
+  s({
+    trig = "aa",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\ang{"),
+    i(1),
+    t("}"),
+    i(0),
   }),
   s({
     trig = "bf",
     snippetType = "autosnippet",
   }, {
     t("\\textbf{"),
-    i(0),
+    i(1),
     t("}"),
+    i(0),
   }),
-  s({ trig = "prime", wordTrig = false, snippetType = "autosnippet" }, { t("^{\\prime}") }),
+  s({
+    trig = "prime",
+    wordTrig = false,
+    snippetType = "autosnippet",
+    condition = pipe({ is_math }),
+  }, {
+    t("^{\\prime}"),
+  }),
   s({
     trig = "equa",
   }, {
     t({ "\\begin{equation}", "  " }),
-    i(0),
+    i(2),
     t({ "", "\\label{eq:" }),
     r(1, "VISUAL"),
     t({ "}", "\\end{equation}" }),
+    i(0),
   }),
   s({
     trig = "dl254",
@@ -101,40 +177,26 @@ return {
     t({ "", "\\end{dinglist}" }),
   }),
   s({
-    trig = "vh",
-    wordTrig = false,
-    snippetType = "autosnippet",
-  }, {
-    t({ "\\vh{" }),
-    i(1),
-    t({ "}" }),
-  }),
-  s({
-    trig = "vc",
-    wordTrig = false,
-    snippetType = "autosnippet",
-  }, {
-    t({ "\\vc{" }),
-    i(1),
-    t({ "}" }),
-  }),
-  s({
     trig = "--",
     wordTrig = false,
     snippetType = "autosnippet",
+    condition = pipe({ not_math }),
   }, {
     t({ "", "\\item" }),
     i(1),
   }),
   s({
     trig = "item",
+    condition = pipe({ not_math }),
   }, {
     t({ "\\begin{itemize}", "  \\item" }),
     i(1),
     t({ "", "\\end{itemize}" }),
   }),
   s({
-    trig = "gather",
+    trig = "gath",
+    snippetType = "autosnippet",
+    condition = pipe({ not_math }),
   }, {
     t({ "\\begin{gather*}", "  " }),
     i(1),
@@ -147,74 +209,5 @@ return {
     i(1),
     t({ "", "\\end{array}\\]" }),
     i(2),
-  }),
-  s({
-    trig = "template",
-  }, {
-    t({
-      "\\documentclass[12pt,",
-      "  notitlepage,",
-      "  % openany,",
-      "  twoside,",
-      "  % twocolumn,",
-      "  ]{article}",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==<Definición de comandos propios>==================",
-      "\\newcommand{\\AAfolder}{/home/luis/.config/mytex}",
-      "\\usepackage{\\AAfolder/sty/SetFormat}",
-      "\\usepackage{\\AAfolder/sty/ColorsLight}",
-      "\\usepackage{\\AAfolder/sty/SetSymbols}",
-      "% En el siguiente comando se indica cuál es el archivo que tiene las referencias",
-      "\\addbibresource{\\AAfolder/bib/Biblioteca.bib}",
-      "%==< luisHP @ home >================================",
-      "% \\newcommand{\\AMfolder}{/home/luis/Documents/01-U/00-00AA-Apuntes}",
-      "%==< 430FM @ EFis.UCR >================================",
-      "% \\newcommand{\\AMfolder}{/home/luis/Documents/apuntes}",
-      "% \\newboolean{MC}",
-      "% \\setbool{MC}{true}",
-      "% \\setbool{solutions}{true}",
-      "% \\graphicspath{{new/path}}",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==< Main info >================================",
-      "\\title{}",
-      "\\date{}",
-      "% Use with \\lecture",
-      "% \\usepackage{\\AAfolder/sty/HW-header}",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==<Inicia documento>================================",
-      "\\begin{document}",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "% \\maketitle",
-      "% \\tableofcontents",
-      "% \\listoffigures",
-      "% \\listoftables",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "",
-    }),
-    i(1),
-    t({
-      "",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==<Bibliografía>====================================",
-      "%		Para la bibliografía se usa el gestor de",
-      "%	referencias bibtex. Toda la información de las",
-      "%	referencias se pone en un archivo aparte con la",
-      "%	terminación .bib y se agrega aquí",
-      "%",
-      "% \\printbibliography",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==<Apéndice>========================================",
-      "%		Se puede crear apéndices que luego se pueden",
-      "%	referenciar con la etiqueta",
-      "% \\appendix",
-      "% \\section{Figuras \\label{app:fig}}",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==<Index>===========================================",
-      "% \\printindex",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-      "%==<Fin del documento>===============================",
-      "\\end{document}",
-      "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-    }),
   }),
 }

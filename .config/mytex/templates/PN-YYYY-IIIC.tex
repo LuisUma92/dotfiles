@@ -2,12 +2,12 @@
 % !TeX root    = main.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[
-  12pt,
-  notitlepage,
+  11pt,
+  % notitlepage,
   openany,
   twoside,
   %twocolumn,
-  ]{book}
+  ]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %==< Definir paquetes >======================================================
   \usepackage{config/0_packages}
@@ -38,11 +38,13 @@
   \date{}
   \usepackage{config/5_profiles}
   \setclass{FS0210}
-  \setcycle{2024-II}
+  \setcycle{2025-II}
   \setgroup{02}
+  \setpartialnumber{1}
+  % \settopics{}
   \usepackage{config/6_headers}
   %==<Definir uso de indice y glosarios >======================================
-  % \pagestyle{uplain}
+  \pagestyle{plain}
   % \setbool{test}{true}
   % \setbool{solutions}{true}
   % \makeindex
@@ -87,21 +89,49 @@
   aceptarán reclamos posteriormente.
   Cuenta con 2 horas para realizar el examen.
   % A continuación se le ofrecen dos ejercicios por tema, debe escoger uno de los
-  % dos y resolverlo. Solo se revisará un ejercicio por tema, así que indique 
-  % claramente cual ejercicio está resolviendo. En caso de que no se indique 
-  % claramente se tomará el primer ejercicio de un tema que se resuelva como el 
-  % ejercicio a revisar. Escriba en el cuaderno de examen el número de pregunta, 
-  % todos los datos, ecuaciones y procedimientos necesarios para obtener el 
-  % resultado solicitado. No olvide que la respuesta es una frase final en la cual 
+  % dos y resolverlo. Solo se revisará un ejercicio por tema, así que indique
+  % claramente cual ejercicio está resolviendo. En caso de que no se indique
+  % claramente se tomará el primer ejercicio de un tema que se resuelva como el
+  % ejercicio a revisar. Escriba en el cuaderno de examen el número de pregunta,
+  % todos los datos, ecuaciones y procedimientos necesarios para obtener el
+  % resultado solicitado. No olvide que la respuesta es una frase final en la cual
   % se responde a la pregunta del enunciado.
+  % \input{config/instructions.tex}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{enumerate}[1.]
-    \input{TNNE000.tex}
+% \section*{Selección única}
+% En esta parte se incluyen 7 preguntas de complete.
+% \textbf{Puntaje Total = 14 puntos, 2 punto por cada pregunta correcta}.
+%
+% \vspace{5mm}
+% \textbf{Instrucciones}:
+% Marque con una "\textbf{X}" la letra que acompañe a la respuesta correcta,
+% de acuerdo con lo visto en clase.
+% \begin{enumerate}[1.]
+%     \input{05-Termodinamica/2025C2-SU2.tex}
+%     % \ifbool{solutions}{\newpage\phantomsection}{}
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+% \section*{Desarrollo}
+% A continuación, se incluye un problema de desarrollo.
+% \textbf{Puntaje Total = 46 puntos}
+%
+% \vspace{5mm}
+% \textbf{Instrucciones}:
+% Resuelva los siguientes problemas de manera clara y ordenada,
+% muestre todos los pasos requeridos para llegar a la respuesta final.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{Caso-1/2025C3.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\partialenumi
+\begin{enumerate}
+    \setthisindent
+    \input{}
     \ifbool{solutions}{\newpage\phantomsection}{}
-    \input{TNNE000.tex}
+    \input{}
     \ifbool{solutions}{\newpage\phantomsection}{}
-    \input{TNNE000.tex}
+    \input{}
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \ifthenelse{\boolean{solutions}}{}{
