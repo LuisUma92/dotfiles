@@ -118,6 +118,28 @@ return {
     i(0),
   }),
   s({
+    trig = "vc",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\vc{"),
+    i(1),
+    t("}"),
+    i(0),
+  }),
+  s({
+    trig = "vh",
+    snippetType = "autosnippet",
+    wordTrig = false,
+    condition = pipe({ is_math }),
+  }, {
+    t("\\hat{"),
+    i(1),
+    t("}"),
+    i(0),
+  }),
+  s({
     trig = "aa",
     snippetType = "autosnippet",
     wordTrig = false,
@@ -131,6 +153,17 @@ return {
   s({
     trig = "bf",
     snippetType = "autosnippet",
+    condition = pipe({ is_math }),
+  }, {
+    t("\\bm{"),
+    i(1),
+    t("}"),
+    i(0),
+  }),
+  s({
+    trig = "bf",
+    snippetType = "autosnippet",
+    condition = pipe({ not_math }),
   }, {
     t("\\textbf{"),
     i(1),
@@ -183,14 +216,14 @@ return {
     condition = pipe({ not_math }),
   }, {
     t({ "", "\\item" }),
-    i(1),
+    i(0),
   }),
   s({
     trig = "item",
     condition = pipe({ not_math }),
   }, {
     t({ "\\begin{itemize}", "  \\item" }),
-    i(1),
+    i(0),
     t({ "", "\\end{itemize}" }),
   }),
   s({
@@ -200,14 +233,26 @@ return {
   }, {
     t({ "\\begin{gather*}", "  " }),
     i(1),
+    t({ " \\\\" }),
+    i(0),
     t({ "", "\\end{gather*}" }),
+  }),
+  s({
+    trig = "\\\\nl",
+    wordTrig = false,
+    snippetType = "autosnippet",
+    condition = pipe({ is_math }),
+  }, {
+    t({ "\\\\", "" }),
+    i(1),
+    t({ " \\\\" }),
+    i(0),
   }),
   s({
     trig = "dts",
   }, {
     t({ "Datos:", "\\[\\begin{array}{l}", "" }),
-    i(1),
-    t({ "", "\\end{array}\\]" }),
-    i(2),
+    i(0),
+    t({ " \\\\", "\\end{array}\\]" }),
   }),
 }

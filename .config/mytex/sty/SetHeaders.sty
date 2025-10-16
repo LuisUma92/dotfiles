@@ -43,10 +43,16 @@
 }
 %==< Definir SEP >=============================================================
 \fancypagestyle{uplain}{
-  \fancyhead[LE,RO]{\thepage}
-  \fancyfoot[LE,RO]{\thepartial \classcode \thecycle}
-  \fancyfoot[RE]{\theauthor}
-  \fancyfoot[LO]{\thetitle}
+  \fancyfoot{}
+  \ifthenelse{\equal{\theunishort}{UCIMED}}{
+    \fancyhead[R]{Página \thepage/\pageref*{LastPage}}
+    \fancyfoot[L]{\textsc{\thepartial}\:-\:\classcode\:-\:\thecycle}
+  }{
+    \fancyhead[LE,RO]{\thepage}
+    \fancyfoot[LE,RO]{\thepartial \classcode \thecycle}
+    \fancyfoot[RE]{\theauthor}
+    \fancyfoot[LO]{\thetitle}
+  }
 }
 \fancypagestyle{partial}{
   \fancyhead[LO]{
@@ -78,13 +84,16 @@
     \fancyfoot[C]{\thepage}
   }{
   \ifthenelse{\equal{\theunishort}{UCIMED}}{
-    \setlength{\headheight}{15pt}
-    \addtolength{\topmargin}{-0.15pt}
+    \setlength{\headheight}{120pt}
     \fancyhead[C]{
       \textbf{\Large{\thepartial}}\\
-      \textbf{\classname}\\
+      \textbf{\classname}\\[2em]
       \thedate \\
-      30 puntos $\leftrightarrow 100\%$ \\
+      \total{totalPoints}\,puntos $\leftrightarrow 100\%$ \\
+    }
+    \fancyhead[RO]{
+      \vbox to \ht\ulogo{Página \thepage/\pageref*{LastPage}}
+  % /\makeatletter\@abspage@last\makatother}
     }
   }{}}}
 }

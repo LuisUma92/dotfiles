@@ -1,24 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcounter{partialNumber}
+\newcounter{totalPoints}
+\newcounter{sectionPoints}
+\newcounter{points}
 \newcommand{\thepartial}{}
 \newcommand{\setpartialnumber}[1]{
   \setcounter{partialNumber}{#1}
-  \ifthenelse{#1 = 1}{
-    \renewcommand{\thepartial}{Primer Parcial}
+  \setcounter{totalPoints}{0}
+  \setcounter{sectionPoints}{0}
+  \setcounter{points}{0}
+  \regtotcounter{totalPoints}
+  \regtotcounter{sectionPoints}
+  \ifthenelse{#1 = 0}{
+    \renewcommand{\thepartial}{\thetitle}
   }{
-    \ifthenelse{#1 = 2}{
-    \renewcommand{\thepartial}{Segundo Parcial}
-  }{
-    \ifthenelse{#1 = 3}{
-    \renewcommand{\thepartial}{Tercer Parcial}
-    }{
-    \ifthenelse{#1 = 4}{
-    \renewcommand{\thepartial}{Cuarto Parcial}
-    }{
-    \renewcommand{\thepartial}{Examen Final}
-    }
+    \renewcommand{\thepartial}{\thetitle\:\Roman{partialNumber}}
   }
-}}
 }
 \newcommand{\testdefinition}[3]{
   \setgroup{#1}
@@ -30,10 +27,24 @@
   \paragraph{Distribución de puntos}
   \renewcommand{\labelenumiv}{\theenumi\theenumiii-\arabic{enumiv})}
 }
-\newcommand{\pts}[1]{(\textit{#1 pts.})}
+\newcommand{\pts}[2][]{
+  (\textit{#2 pts.})
+  \ifthenelse{\equal{#1}{add}}{
+    \addtocounter{points}{#2}
+  }{}
+}
 \newcommand{\upt}{(\textit{1 pt.})}
 \newcommand{\uptcu}{(\textit{1 pt c/u.})}
 \newcommand{\ptscu}[1]{(\textit{#1 pts c/u.})}
+\newcommand{\consolidatePoints}[1]{
+  \setcounter{sectionPoints}{\value{points}}
+  \addtocounter{totalPoints}{\value{points}}
+  \setcounter{points}{0}
+  \protected@write\@auxout{}{%
+    \string\newlabel{#1}{{\arabic{sectionPoints}}{\thepage}}%
+  }%
+}
+
 
 \newcommand{\topics}{}
 \newcommand{\settopics}[1]{

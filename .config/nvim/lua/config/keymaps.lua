@@ -69,13 +69,48 @@ function OpenWithZathura()
   local line_number = vim.fn.line(".")
 
   -- Construct the command with the current line number
-  local command = string.format(":!zathura %d", line_number)
+  local command = string.format(":!zathura %d&", line_number)
   -- Execute the command
   vim.cmd(command)
 end
 
 -- Define the key mapping
 vim.api.nvim_set_keymap("n", "<leader>z", ":lua OpenWithZathura()<CR>", { noremap = true, silent = true })
+
+function OpenWithZathuraVisual()
+  -- Obtener el rango de selección visual
+  local _, ls, cs = unpack(vim.fn.getpos("'<"))
+  local _, le, ce = unpack(vim.fn.getpos("'>"))
+
+  -- Obtener las líneas seleccionadas
+  local lines = vim.fn.getline(ls, le)
+  if #lines == 0 then
+    return
+  end
+
+  -- Si la selección está en una sola línea, recortar al rango de columnas
+  if #lines == 1 then
+    lines[1] = string.sub(lines[1], cs, ce)
+  else
+    lines[1] = string.sub(lines[1], cs)
+    lines[#lines] = string.sub(lines[#lines], 1, ce)
+  end
+
+  -- Unir las líneas seleccionadas
+  local selected_text = table.concat(lines, "\n")
+
+  -- Escapar comillas por seguridad
+  selected_text = vim.fn.shellescape(selected_text)
+
+  -- Construir el comando para zathura
+  local command = string.format("!zathura %s&", selected_text)
+
+  -- Ejecutar el comando
+  vim.cmd(command)
+end
+
+-- Mapeo de tecla en modo visual
+vim.api.nvim_set_keymap("v", "<leader>z", ":<C-u>lua OpenWithZathuraVisual()<CR>", { noremap = true, silent = true })
 
 function dump(o)
   if type(o) == "table" then

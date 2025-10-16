@@ -18,7 +18,7 @@ alias config='/usr/bin/git --git-dir=/home/luis/.cfg/ --work-tree=/home/luis'
 alias inittexp='/home/luis/.config/mytex/inittex.sh'
 
 # Start the SSH agent
-eval "$(ssh-agent -s)"
+# eval "$(ssh-agent -s)"
 
 # Add SSH keys
-ssh-add ~/.ssh/lenovo_id
+# ssh-add ~/.ssh/lenovo_id

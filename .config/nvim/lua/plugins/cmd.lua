@@ -39,6 +39,10 @@ return {
       keymap = {
         preset = "enter",
         ["<C-y>"] = { "select_and_accept" },
+        ["<C-Tab>"] = {
+          "select_and_accept",
+          "fallback",
+        },
         ["<Tab>"] = {
           "snippet_forward",
           "select_and_accept",

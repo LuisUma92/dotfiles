@@ -33,3 +33,6 @@ cfb
 .spack
 .renpy
 .pulse-cookie
+.gnupg
+.cookiecutters
+.cookiecutter_replay
