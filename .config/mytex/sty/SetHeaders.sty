@@ -48,13 +48,20 @@
     \fancyhead[R]{Página \thepage/\pageref*{LastPage}}
     \fancyfoot[L]{\textsc{\thepartial}\:-\:\classcode\:-\:\thecycle}
   }{
+  \ifthenelse{\equal{\theunishort}{UCR}}{
     \fancyhead[LE,RO]{\thepage}
-    \fancyfoot[LE,RO]{\thepartial \classcode \thecycle}
+    \fancyhead[RE,LO]{\textsc{\thepartial}}
+    \fancyfoot[LE,RO]{\textsc{\classcode\:-\:\thecycle}}
+    \fancyfoot[RE,LO]{\theauthor}
+  }{
+    \fancyhead[LE,RO]{\thepage}
+    \fancyfoot[LE,RO]{\thepartial\:-\:\classcode\:-\:\thecycle}
     \fancyfoot[RE]{\theauthor}
     \fancyfoot[LO]{\thetitle}
-  }
+  }}
 }
 \fancypagestyle{partial}{
+  \fancyfoot{}
   \fancyhead[LO]{
     \usebox{\ulogo}
   }
@@ -93,7 +100,6 @@
     }
     \fancyhead[RO]{
       \vbox to \ht\ulogo{Página \thepage/\pageref*{LastPage}}
-  % /\makeatletter\@abspage@last\makatother}
     }
   }{}}}
 }

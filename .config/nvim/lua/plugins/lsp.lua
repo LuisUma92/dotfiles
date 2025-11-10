@@ -16,10 +16,10 @@ return {
         },
       },
     },
-    {
-      "hinell/lsp-timeout.nvim",
-      dependencies = { "neovim/nvim-lspconfig" },
-    },
+    -- {
+    --   "hinell/lsp-timeout.nvim",
+    --   dependencies = { "neovim/nvim-lspconfig" },
+    -- },
     -- config = function()
     --   -- This is where all the LSP shenanigans will live
     --   local lsp_zero = require('lsp-zero')

@@ -10,6 +10,12 @@ Dependency:
 	location: path
 	string: gimp
 
+Extension "Formula (pdflatex)" failed to load because a dependency was not met.
+Dependency:
+	type: executable
+	location: path
+	string: pdflatex
+
 Extension "Optimized PNG" failed to load because a dependency was not met.
 Dependency:
 	type: executable

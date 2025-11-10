@@ -32,10 +32,6 @@ default = [
   "websearch",
 ] # providers to be queried by default
 empty = ["desktopapplications"] # providers to be queried when query is empty
-max_results = 50 # global max results
-
-[providers.sets] # define your own defaults/empty sets of providers
-[providers.max_results_provider] # define max results per provider in here
 
 [[providers.prefixes]]
 prefix = "/"
@@ -61,7 +57,7 @@ provider = "websearch"
 prefix = "$"
 provider = "clipboard"
 
-[providers.actions] # This will be MERGED/OVEWRITTEN with what the user specifies
+[providers.actions]
 dmenu = [{ action = "select", default = true, bind = "Return" }]
 
 providerlist = [
@@ -96,7 +92,7 @@ websearch = [
 
 desktopapplications = [
   { action = "start", default = true, bind = "Return" },
-  { action = "start:keep", label = "open+next", bind = "shift Return", after = "KeepOpen" },
+  { action = "start", label = "open+next", bind = "shift Return", after = "KeepOpen" },
   { action = "erase_history", label = "clear hist", bind = "ctrl h", after = "AsyncReload" },
   { action = "pin", bind = "ctrl p", after = "AsyncReload" },
   { action = "unpin", bind = "ctrl p", after = "AsyncReload" },

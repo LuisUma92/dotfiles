@@ -33,7 +33,12 @@
     \addtocounter{points}{#2}
   }{}
 }
-\newcommand{\upt}{(\textit{1 pt.})}
+\newcommand{\upt}[1][]{
+  (\textit{1 pt.})
+  \ifthenelse{\equal{#1}{add}}{
+    \addtocounter{points}{1}
+  }{}
+}
 \newcommand{\uptcu}{(\textit{1 pt c/u.})}
 \newcommand{\ptscu}[1]{(\textit{#1 pts c/u.})}
 \newcommand{\consolidatePoints}[1]{
@@ -53,6 +58,12 @@
 \newcommand{\rightoption}{
   \ifthenelse{\boolean{solutions}}{{\color{blue}\ding{51}}}{}
 }
+
+\newcommand{\inputline}{\line(1,0){150}}
+\newcommand{\completeline}[1]{
+  \ifthenelse{\boolean{solutions}}{\textbf{\color{blue}#1}\;}{\inputline\;}
+}
+
 \newcommand{\partialenumi}{
   \ifthenelse{\equal{\theunishort}{UFide}}{
     \renewcommand{\labelenumi}{\textbf{Desempeño \arabic{enumi}.}}
@@ -65,4 +76,33 @@
     \setlength{\itemindent}{+1in}
   }{
   }
+}
+
+\newcommand{\AANlines}{
+
+\begin{minipage}{0.3\textwidth}
+	\begin{center}
+		\line(1,0){140}
+
+		\textbf{Primer apellido}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+	\begin{center}
+		\line(1,0){140}
+
+		\textbf{Segundo apellido}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+	\begin{center}
+		\line(1,0){140}
+
+		\textbf{Nombre completo}
+	\end{center}
+\end{minipage}
+\vspace*{0.5cm}
+
 }

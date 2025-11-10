@@ -36,3 +36,5 @@ cfb
 .gnupg
 .cookiecutters
 .cookiecutter_replay
+node_modules
+.oracle_jre_usage

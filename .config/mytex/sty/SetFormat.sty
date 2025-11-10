@@ -10,6 +10,7 @@
   % Paquete que cambia títulos y palabras claves al idioma seleccionado
   \usepackage[spanish]{babel}
 
+
 %====< Fonts >=================================================================
   % Font loader para LuaLaTeX
   \usepackage{luaotfload}
@@ -56,7 +57,7 @@
   \usepackage{pifont}
 
 %====< Uso de colores >========================================================
-  \usepackage{xcolor}
+  \usepackage[table]{xcolor}
   \definecolor{BlueST} {HTML}{00e359}
   \definecolor{GreenT} {HTML}{709b16}
   \definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
@@ -86,6 +87,9 @@
   \definecolor{azulOscuroUFide}{HTML}{001f60}
   \definecolor{rosadoUFide}{HTML}{e31c93}
   \definecolor{moradoUFide}{HTML}{67268e}
+  
+  \definecolor{azulUCIMED}{HTML}{0b2b6d}
+  \definecolor{amarilloUCIMED}{HTML}{bf9322}
 
 %====< Letras y símbolos matemáticos >=========================================
   %   Paquete que mejora la presentación visual de las ecuaciones, proporciona
@@ -189,9 +193,21 @@
 
 %====< Design images >=========================================================
   \usepackage{tikz}
-  \usetikzlibrary{patterns,angles}
-  \usetikzlibrary{calc,arrows,shapes.arrows,intersections,math}
-  \usetikzlibrary{decorations,decorations.markings,babel,positioning}
+  \usetikzlibrary{patterns}
+  \usetikzlibrary{babel}
+  \usetikzlibrary{angles}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{arrows}
+  \usetikzlibrary{shapes.arrows}
+  \usetikzlibrary{shapes.misc}
+  \usetikzlibrary{decorations}
+  \usetikzlibrary{decorations.markings}
+  \usetikzlibrary{intersections}
+  \usetikzlibrary{math}
+  \usetikzlibrary{positioning}
+  \usetikzlibrary{circuits.ee.IEC}
+  \usetikzlibrary{backgrounds}
+  \usetikzlibrary{fit}
 
 %====< Formato de la pagina >==================================================
   % Permite dividir la hoja en varias columnas

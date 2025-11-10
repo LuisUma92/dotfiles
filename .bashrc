@@ -1,3 +1,6 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
 source ~/.local/share/omarchy/default/bash/rc
@@ -9,7 +12,7 @@ source ~/.local/share/omarchy/default/bash/rc
 
 . "$HOME/.local/share/../bin/env"
 
-export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:/home/luis/.spack/bin:$PATH
 export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
 

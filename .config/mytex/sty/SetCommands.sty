@@ -76,8 +76,7 @@
         #2
       }{}
     }{
-    #1
-    \newline
+    #1\par
     #2
     }
   }
@@ -88,6 +87,10 @@
       \paragraph{Solución:}
       #2
     }{}
+  }
+  \newcommand{\thegeneralobjective}{}
+  \newcommand{\setobjective}[1]{
+    \renewcommand{\thegeneralobjective}{#1}
   }
 
 %==< Definición de comandos >==================================================

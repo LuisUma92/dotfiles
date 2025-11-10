@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- Personal remaps
-vim.keymap.set("i", "<C-e>", "<Esc>")
+vim.keymap.set("i", "<C-z>", "<Esc>")
 vim.keymap.set("n", "<C-b>", ":b#<CR>")
 vim.keymap.set("n", "<leader>ws", ":w<CR>:so<CR>", { desc = "save and source" })
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "save from insert mode" })
