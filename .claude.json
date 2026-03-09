@@ -1,5 +1,5 @@
 {
-  "numStartups": 4,
+  "numStartups": 7,
   "customApiKeyResponses": {
     "approved": [
       "9CC9gSqFWOw-1eu57AAA"
@@ -7,7 +7,7 @@
     "rejected": []
   },
   "tipsHistory": {
-    "new-user-warmup": 3,
+    "new-user-warmup": 6,
     "plan-mode-for-complex-tasks": 3,
     "terminal-setup": 3,
     "memory-command": 3,
@@ -16,7 +16,7 @@
     "prompt-queue": 3,
     "enter-to-steer-in-relatime": 3,
     "todo-list": 3,
-    "ide-upsell-external-terminal": 3,
+    "ide-upsell-external-terminal": 7,
     "install-github-app": 3,
     "install-slack-app": 3,
     "drag-and-drop-images": 3,
@@ -25,9 +25,13 @@
     "shift-tab": 3,
     "image-paste": 4,
     "web-app": 4,
-    "mobile-app": 4
+    "mobile-app": 4,
+    "custom-agents": 6,
+    "agent-flag": 6,
+    "default-permission-mode-config": 7,
+    "frontend-design-plugin": 7
   },
-  "promptQueueUseCount": 1,
+  "promptQueueUseCount": 2,
   "cachedGrowthBookFeatures": {
     "tengu_1p_event_batch_config": {
       "scheduledDelayMillis": 10000,
@@ -100,7 +104,9 @@
     "tengu_amber_prism": false,
     "tengu_auto_background_agents": false,
     "tengu_permission_explainer": true,
-    "tengu_destructive_command_warning": false
+    "tengu_destructive_command_warning": false,
+    "tengu_disable_streaming_to_non_streaming_fallback": false,
+    "tengu_plum_vx3": true
   },
   "firstStartTime": "2026-03-07T15:57:19.824Z",
   "opusProMigrationComplete": true,
@@ -108,7 +114,7 @@
   "userID": "7a751099f67e33cda50b8da10c9b3b6652e097c3584da1ba667f6dbef56f4c26",
   "clientDataCache": {
     "data": {},
-    "timestamp": 1773022481020
+    "timestamp": 1773082214474
   },
   "cachedChromeExtensionInstalled": false,
   "changelogLastFetched": 1772944962897,
@@ -265,6 +271,142 @@
         "hook_duration_ms_p95": 1,
         "hook_duration_ms_p99": 1
       }
+    },
+    "/home/luis": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "lastCost": 0.12244374999999999,
+      "lastAPIDuration": 28858,
+      "lastAPIDurationWithoutRetries": 28853,
+      "lastToolDuration": 27576,
+      "lastDuration": 60131,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 5231,
+      "lastTotalOutputTokens": 824,
+      "lastTotalCacheCreationInputTokens": 7819,
+      "lastTotalCacheReadInputTokens": 62232,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 5.79,
+      "lastFpsLow1Pct": 113.26,
+      "lastModelUsage": {
+        "claude-opus-4-6": {
+          "inputTokens": 4477,
+          "outputTokens": 760,
+          "cacheReadInputTokens": 62232,
+          "cacheCreationInputTokens": 7819,
+          "webSearchRequests": 0,
+          "costUSD": 0.12136975000000001
+        },
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 754,
+          "outputTokens": 64,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001074
+        }
+      },
+      "lastSessionId": "3cbf5436-debf-4045-b5ea-fa39d903583e",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 572,
+        "frame_duration_ms_min": 0.1949300000014773,
+        "frame_duration_ms_max": 12.12782400001015,
+        "frame_duration_ms_avg": 1.926929627622492,
+        "frame_duration_ms_p50": 1.4937505000052624,
+        "frame_duration_ms_p95": 5.84534430000085,
+        "frame_duration_ms_p99": 8.515781679999183,
+        "pre_tool_hook_duration_ms_count": 5,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 2,
+        "pre_tool_hook_duration_ms_avg": 1,
+        "pre_tool_hook_duration_ms_p50": 1,
+        "pre_tool_hook_duration_ms_p95": 1.7999999999999998,
+        "pre_tool_hook_duration_ms_p99": 1.96,
+        "hook_duration_ms_count": 3,
+        "hook_duration_ms_min": 0,
+        "hook_duration_ms_max": 1,
+        "hook_duration_ms_avg": 0.6666666666666666,
+        "hook_duration_ms_p50": 1,
+        "hook_duration_ms_p95": 1,
+        "hook_duration_ms_p99": 1
+      }
+    },
+    "/home/luis/Projects/Omyfendory": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 1.42742225,
+      "lastAPIDuration": 331387,
+      "lastAPIDurationWithoutRetries": 331340,
+      "lastToolDuration": 13234,
+      "lastDuration": 2242312,
+      "lastLinesAdded": 73,
+      "lastLinesRemoved": 58,
+      "lastTotalInputTokens": 18129,
+      "lastTotalOutputTokens": 13420,
+      "lastTotalCacheCreationInputTokens": 70051,
+      "lastTotalCacheReadInputTokens": 1304853,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 3.53,
+      "lastFpsLow1Pct": 18.01,
+      "lastModelUsage": {
+        "claude-opus-4-6": {
+          "inputTokens": 652,
+          "outputTokens": 12467,
+          "cacheReadInputTokens": 1304853,
+          "cacheCreationInputTokens": 70051,
+          "webSearchRequests": 0,
+          "costUSD": 1.4051802500000001
+        },
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 17477,
+          "outputTokens": 953,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.022241999999999998
+        }
+      },
+      "lastSessionId": "2e3c2ab4-c6cc-4fa5-9d4d-142110637482",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 7866,
+        "frame_duration_ms_min": 0.22377500007860363,
+        "frame_duration_ms_max": 128.59225400025025,
+        "frame_duration_ms_avg": 4.263994097383024,
+        "frame_duration_ms_p50": 2.609655000065686,
+        "frame_duration_ms_p95": 5.953033549920604,
+        "frame_duration_ms_p99": 56.921541879995985,
+        "pre_tool_hook_duration_ms_count": 49,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 2,
+        "pre_tool_hook_duration_ms_avg": 0.7959183673469388,
+        "pre_tool_hook_duration_ms_p50": 1,
+        "pre_tool_hook_duration_ms_p95": 2,
+        "pre_tool_hook_duration_ms_p99": 2,
+        "hook_duration_ms_count": 18,
+        "hook_duration_ms_min": 0,
+        "hook_duration_ms_max": 1,
+        "hook_duration_ms_avg": 0.2222222222222222,
+        "hook_duration_ms_p50": 0,
+        "hook_duration_ms_p95": 1,
+        "hook_duration_ms_p99": 1
+      }
     }
   },
   "lastReleaseNotesSeen": "2.1.56",
@@ -276,19 +418,6 @@
   "subscriptionNoticeCount": 1,
   "officialMarketplaceAutoInstallAttempted": true,
   "officialMarketplaceAutoInstalled": true,
-  "oauthAccount": {
-    "accountUuid": "28ba2c64-faea-4bec-a286-2edb3cbc5b44",
-    "emailAddress": "loiluisuma@gmail.com",
-    "organizationUuid": "f483cfbf-1e26-4d28-bf53-b1d1d9ea828d",
-    "hasExtraUsageEnabled": false,
-    "billingType": "stripe_subscription",
-    "subscriptionCreatedAt": "2026-03-08T04:38:41.670996Z",
-    "displayName": "Luis",
-    "organizationRole": "admin",
-    "workspaceRole": null,
-    "organizationName": "loiluisuma@gmail.com's Organization",
-    "accountCreatedAt": "2026-03-07T15:50:33.568250Z"
-  },
   "claudeCodeFirstTokenDate": "2026-03-07T16:59:50.747760Z",
   "anonymousId": "claudecode.v1.bed5b225-70a8-4729-be2e-9f989297106d",
   "cachedExtraUsageDisabledReason": "org_level_disabled",
@@ -301,10 +430,26 @@
   },
   "skillUsage": {
     "init": {
-      "usageCount": 1,
-      "lastUsedAt": 1773008763410
+      "usageCount": 4,
+      "lastUsedAt": 1773065945247
     }
   },
   "showSpinnerTree": false,
-  "lspRecommendationIgnoredCount": 1
+  "lspRecommendationIgnoredCount": 1,
+  "oauthAccount": {
+    "accountUuid": "28ba2c64-faea-4bec-a286-2edb3cbc5b44",
+    "emailAddress": "loiluisuma@gmail.com",
+    "organizationUuid": "f483cfbf-1e26-4d28-bf53-b1d1d9ea828d",
+    "hasExtraUsageEnabled": false,
+    "billingType": "stripe_subscription",
+    "accountCreatedAt": "2026-03-07T15:50:33.568250Z",
+    "subscriptionCreatedAt": "2026-03-08T04:38:41.670996Z",
+    "displayName": "Luis"
+  },
+  "githubRepoPaths": {
+    "ublue-os/image-template": [
+      "/home/luis/Projects/Omyfendory"
+    ]
+  },
+  "lastPlanModeUse": 1773079645395
 }

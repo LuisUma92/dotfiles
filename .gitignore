@@ -43,7 +43,7 @@ cfb
 .config/gazelle
 .config/BraveSoftware
 .config/fastfetch
-.claude/plugins
+.claude*
 .zen
 .steam
 .steampath
