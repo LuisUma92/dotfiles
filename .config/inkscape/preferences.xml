@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="132.38583061639"
-         height="22.064306304211" />
+         width="162.316149613991"
+         height="26.8234300988866" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -155,8 +155,9 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="8.08969963253953"
-         ry="8.08969963253953" />
+         rx="30.4791704313023"
+         ry="30.4791704313023"
+         arc_type="0" />
       <eventcontext
          id="star"
          magnitude="5"
@@ -316,7 +317,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="line-height:1.25;font-family:'Liberation Serif';font-size:26.66666667px;text-orientation:auto;-inkscape-font-specification:'Liberation Serif'"
+       style="line-height:1.25;font-family:'Liberation Serif';font-size:16px;text-orientation:auto;-inkscape-font-specification:'Liberation Serif'"
        selcue="1"
        align_mode="0"
        writing_mode="0"
@@ -326,6 +327,8 @@
        id="nodes"
        selcue="1"
        gradientdrag="1"
+       changelayer="0"
+       changepage="0"
        pathflash_enabled="1"
        pathflash_unselected="0"
        pathflash_timeout="500"
@@ -591,7 +594,7 @@
        applyseparately="0" />
     <group
        id="align"
-       objects-align-to="page" />
+       objects-align-to="selection" />
     <group
        id="xml"
        h="500"
@@ -622,19 +625,22 @@
        path="">
       <group
          id="exportarea"
-         value="page" />
+         value="selection" />
       <group
          id="defaultxdpi" />
       <group
          id="batchexportarea"
          value="layer" />
+      <group
+         id="defaultdpi"
+         value="126.669998168945" />
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.pdf.cairorenderer"
+       default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/Ufide-0225/lect/2025-IIIC"
+       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/UCIMED-CB9/lect/00-PresentacionesOficiales/svg"
        use_current_dir="1"
        enable_svgexport="0" />
     <group
@@ -646,11 +652,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/luis/.cache/inkscape/" />
+       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/Ufide-0225/lect/2025-IIIC/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/UCR-FS0410/eval/img/"
+       path="/home/luis/Documents/01-U/00-Fisica/00AA-Lectures/Ufide-0225/lect/2023-IIC/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -980,7 +986,9 @@
     <group
        id="boot"
        theme="custom"
-       mode="0">
+       mode="0"
+       showsplash="0"
+       showwelcome="0">
       <group
          id="shown"
          ver1.4.2="1" />
@@ -1022,9 +1030,9 @@
      org.inkscape.print.wmf.FixPPTGrad2Polys="0"
      org.inkscape.print.wmf.FixPPTPatternAsHatch="0"
      org.inkscape.print.wmf.textToPath="1"
-     org.inkscape.template.paper.max="42.0"
-     org.inkscape.template.paper.min="30.0"
-     org.inkscape.template.paper.unit="in"
+     org.inkscape.template.paper.max="297.0"
+     org.inkscape.template.paper.min="210.0"
+     org.inkscape.template.paper.unit="mm"
      org.inkscape.template.paper.orientation="land"
      org.inkscape.template.video.height="4320.0"
      org.inkscape.template.video.unit="px"
@@ -1042,7 +1050,7 @@
      org.inkscape.input.svg.scale="auto" />
   <group
      id="desktop"
-     style="fill:#ff0000;text-orientation:auto;stroke-width:2.13543307;font-size:26.66666667px;-inkscape-font-specification:'Liberation Serif';font-family:'Liberation Serif';stroke:#ff0000;opacity:0.29478415">
+     style="fill:#ff0000;text-orientation:auto;stroke-width:5.53700787;font-size:16px;-inkscape-font-specification:'Times New Roman,  Italic';font-family:'Times New Roman';font-style:italic;fill-opacity:0.36050054;stroke:#008000">
     <group
        width="990"
        height="568"
@@ -1079,7 +1087,8 @@
        iconsize="16"
        width="26">
       <group
-         id="buttons" />
+         id="buttons"
+         showLPETool="0" />
     </group>
     <group
        id="controlbars"

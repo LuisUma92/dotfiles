@@ -1,0 +1,30 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+La densidad de un material se define como $\rho = m/V$.
+Si la masa de una esfera es $\SI{2.7}{kg}$ y su radio es $\SI{0.05}{m}$,
+¿cuál es la densidad del material expresada en $\text{kg/m}^3$?
+Use $V = \tfrac{4}{3}\pi r^3$ y $\pi \approx 3$.
+\pts[add]{3}
+\begin{enumerate}
+\item $2\,700\,\text{kg/m}^3$
+\item $3\,600\,\text{kg/m}^3$
+\item $5\,400\,\text{kg/m}^3$\rightoption
+\item $8\,100\,\text{kg/m}^3$
+\item $10\,800\,\text{kg/m}^3$
+\end{enumerate}
+}{
+  \paragraph{Solución}
+  \begin{gather*}
+    V = \tfrac{4}{3}\pi r^3
+      = \tfrac{4}{3}(3)(0.05)^3
+      = 4 \times (1.25\times10^{-4})
+      = \SI{5.0e-4}{m^3} \\
+    \rho = \frac{m}{V}
+         = \frac{\SI{2.7}{kg}}{\SI{5.0e-4}{m^3}}
+         = \SI{5400}{kg/m^3}
+  \end{gather*}
+}

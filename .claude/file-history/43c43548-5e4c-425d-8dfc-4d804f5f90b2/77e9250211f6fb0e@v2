@@ -1,0 +1,27 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+Un bloque de $5\,\text{kg}$ se encuentra sobre un plano inclinado sin fricción
+que forma un ángulo de $\ang{30}$ con la horizontal.
+¿Cuál es la componente del peso paralela al plano?
+Use $g = \SI{10}{\ace}$.
+\pts[add]{3}
+\begin{enumerate}
+\item $15\,\text{N}$
+\item $20\,\text{N}$
+\item $25\,\text{N}$\rightoption
+\item $30\,\text{N}$
+\item $50\,\text{N}$
+\end{enumerate}
+}{
+  \paragraph{Solución}
+  \begin{gather*}
+    W_{\parallel} = mg\sin(\theta) \\
+    W_{\parallel} = (\SI{5}{kg})\cdot(\SI{10}{\ace})\cdot\sin(\ang{30}) \\
+    W_{\parallel} = (50)(0.5) \\
+    W_{\parallel} = \SI{25}{N} \\
+  \end{gather*}
+}

@@ -1,5 +1,28 @@
 return {
   {
+    dir = "/home/luis/Projects/TeXNotes", -- mismo repo, o usa url si lo publicas
+    name = "latexzettel.nvim",
+    config = function()
+      require("latexzettel").setup({
+        server_cmd = { "latexzettel-server" },
+        protocol_version = 1,
+        debug = true,
+      })
+    end,
+  },
+  -- {
+  --   "eliasCVII/texnotes.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     { "nvim-mini/mini.pick", version = false },
+  --   },
+  --   opts = {
+  --     path = "~/Documents/01-U/98-ZettelKasten",
+  --     compile_on_write = true,
+  --   },
+  -- },
+  {
     "lervag/vimtex",
     lazy = false,
     config = function()

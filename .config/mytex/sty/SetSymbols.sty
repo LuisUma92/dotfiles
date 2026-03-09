@@ -5,9 +5,6 @@
 % \newcommand{\px}{\textcolor{PosX}{\bm{x}}} %!45!yellow
 % \newcommand{\py}{\textcolor{PosY}{y}}
 % \newcommand{\pz}{\textcolor{PosZ}{z}}
-% \newcommand{\vi}{\vh{\textcolor{PosX}{\imath}}}
-% \newcommand{\vj}{\vh{\textcolor{PosY}{\jmath}}}
-% \newcommand{\vk}{\vh{\textcolor{PosZ}{k}}}
 % \newcommand{\di}{\textcolor{Dis}{d}}
 % \newcommand{\de}{\vc{\textcolor{Des}{d}}}
 % \newcommand{\vv}[1][v]{\vc{\textcolor{Vel}{#1}}}
@@ -20,8 +17,6 @@
 % \newcommand{\fza}[1]{\vc{\textcolor{Fza}{ #1 }}}
 % \newcommand{\fzm}[1]{|\vc{\textcolor{Fza}{ #1 }}|}
 % \newcommand{\fzc}[2]{\vm{\textcolor{Fza}{ #1 }}_{ #2 }}
-%
-% %General vector notation
 %
 % \newcommand{\vA}{\vc{\textcolor{Pos!45!red}{A}}}
 % \newcommand{\mvA}{|\vc{\textcolor{Pos!45!red}{A}}|}
@@ -36,8 +31,27 @@
 % \newcommand{\vBx}{\textcolor{PosX!45!blue}{B_x}}
 % \newcommand{\vBy}{\textcolor{PosY!45!blue}{B_y}}
 % \newcommand{\vBz}{\textcolor{PosZ!45!blue}{B_z}}
-%
-% \newcommand{\tAB}{\textcolor{blue}{\varphi}}
+
+%General vector notation
+\newcommand{\vi}{\hat{\imath}}
+\newcommand{\vj}{\hat{\jmath}}
+\newcommand{\vk}{\hat{k}}
+
+\newcommand{\vA}{{\color{red}\vc{A}}}
+\newcommand{\mvA}{|\vc{\textcolor{red}{A}}|}
+\newcommand{\vAt}{\textcolor{red}{\theta_A}}
+\newcommand{\vAx}{\textcolor{red}{A_x}}
+\newcommand{\vAy}{\textcolor{red}{A_y}}
+\newcommand{\vAz}{\textcolor{red}{A_z}}
+
+\newcommand{\vB}{{\color{blue}\vc{B}}}
+\newcommand{\mvB}{|\vc{\textcolor{blue}{B}}|}
+\newcommand{\vBt}{\textcolor{blue}{\theta_B}}
+\newcommand{\vBx}{\textcolor{blue}{B_x}}
+\newcommand{\vBy}{\textcolor{blue}{B_y}}
+\newcommand{\vBz}{\textcolor{blue}{B_z}}
+
+\newcommand{\tAB}{\textcolor{blue}{\varphi}}
 
 \newcommand{\fem}{\bm{\mathcal{E}}}
 

@@ -1,0 +1,55 @@
+# Rediseño de ITeP: De YAML flat a modelo relacional
+
+## Contexto
+
+ITeP maneja proyectos LaTeX académicos. Actualmente toda la información de un proyecto vive en un `config.yaml` por proyecto. Esto causa duplicación masiva cuando:
+
+- El mismo curso (ej. FS0121) se imparte en múltiples ciclos lectivos
+- Los mismos libros se usan en múltiples cursos
+- La misma institución tiene múltiples cursos (UCR siempre tiene 18 semanas, etc.)
+- Los mismos topics (Cinemática, Dinámica) aparecen en múltiples cursos
+
+Se agregó `database.py` con Django ORM para normalizar esta información.
+
+## Análisis del estado actual
+
+### Capas de datos actuales
+
+```
+models.py (código Python)     → Plantillas/reglas de estructura
+config.yaml (por proyecto)    → Datos instanciados + paths resueltos
+database.py (propuesto)       → Datos maestros normalizados (sin conexión aún)
+```
+
+### Qué se duplica en config.yaml entre proyectos
+
+| Dato | Ejemplo | Se repite cuando... |
+|------|---------|---------------------|
+| Institution | UCR, 18 semanas, Semestre | Cualquier curso en UCR |
+| Course info | FS0121, Física General I, 3 lec/semana | Mismo curso en otro ciclo |
+| Book | 530_R434f5, Resnick, ed.5 | Mismo libro en otro curso |
+| Topic | Cinemática, bajo Mecánica Clásica | Mismo topic en otro curso |
+| Content | Cap 1-4 de Resnick = Cinemática | Misma relación libro-topic |
+| Evaluation structure | 2 parciales, 4 quices | Mismo esquema en otro ciclo |
+
+### Qué modela bien database.py
+
+- `Institution_configuration` — una fila por institución (elimina duplicación)
+- `Course` → FK a institución (curso como entidad reutilizable)
+- `Book` + `Author` + `Content` — datos de libros normalizados
+- `Topic` → `Main_topic` — jerarquía de temas
+- `Evaluation` → FK a institución (plantillas de evaluación por institución)
+- `CoursesContent` — qué contenido se da en qué semana
+- `CoursesEvaluation` — estructura de evaluación por curso
+
+### Qué falta en database.py
+
+1. **No hay tabla "ProjectInstance"** — No existe el concepto de "FS0121 en II-2025". `Course` es la plantilla del curso, pero no hay una tabla para una instancia específica (ciclo/año). Esto es lo que `ProjectStructure` representa hoy.
+
+2. **No hay mapeo al filesystem** — La DB no modela dónde viven los archivos en disco ni las relaciones de symlinks.
+
+3. **No hay puente DB ↔ filesystem** — No hay código que conecte los modelos Django con la creación de directorios/symlinks.
+
+## Preguntas de diseño pendientes
+
+(Ver conversación con el usuario)

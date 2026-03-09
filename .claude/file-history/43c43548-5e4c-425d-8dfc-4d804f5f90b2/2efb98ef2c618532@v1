@@ -1,0 +1,129 @@
+% !TeX program = lualatex
+% !TeX root    = P1-2025C2.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[
+  11pt,
+  twoside,
+  %twocolumn,
+  openany
+  ]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %==< Definir paquetes >======================================================
+  \usepackage{config/0_packages}
+  \usepackage{config/1_loyaut}
+  \usepackage{config/2_commands}
+  \usepackage{config/2_partial}
+  \usepackage{config/3_units}
+  %==<Definir bibliografía>====================================================
+  % \usepackage{config/4_biber}
+  %==< Definir recursos visuales >=============================================
+  \graphicspath{
+    {img}
+    % {\FisicaDir/00II-ImagesFigures/10MC},
+    % {\FisicaDir/00II-ImagesFigures/20TD},
+    % {\FisicaDir/00II-ImagesFigures/40EM},
+    % {\FisicaDir/00II-ImagesFigures/530_B344f1-Bauer},
+    % {\FisicaDir/00II-ImagesFigures/530_G433f4-Giancoli},
+    % {\FisicaDir/00II-ImagesFigures/530_R434f4-resnickF4},
+    % {\FisicaDir/00II-ImagesFigures/530_R434f5-resnick},
+    % {\FisicaDir/00II-ImagesFigures/530_S439fi12-Sears},
+    % {\FisicaDir/00II-ImagesFigures/530_S439fi14-Sears},
+    % {\FisicaDir/00II-ImagesFigures/530_S492fi10-Serway},
+    % {\FisicaDir/00II-ImagesFigures/530_W696f6},
+    % {\FisicaDir/00II-ImagesFigures/icons},
+  }
+  %==< Definir información general >===========================================
+  \title{Prueba Parcial}
+  \date{13 de marzo}
+  \usepackage{config/5_profiles}
+  \usepackage{config/5_colors}
+  \setclass{CB-09}
+  \setpartialnumber{1}
+  \setcycle{2026-I}
+  \setgroup{1}
+  \usepackage{config/6_headers}
+  %==<Definir uso de indice y glosarios >======================================
+  \setbool{test}{true}
+  % \setbool{solutions}{true}
+  \pagestyle{uplain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==< Inicia documento>=========================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{solutions}}{
+  \input{config/title.tex}
+	\pdfbookmark{Índice General}{section}
+	\tableofcontents
+	\newpage\phantomsection
+	\addcontentsline{toc}{section}{\thegroup  - \thecycle}
+	\begin{center}
+		\large{\thegroup}
+		\hfill
+		\large{\thecycle}
+	\end{center}
+}{
+  \thispagestyle{partial}
+  \input{config/instructions.tex}
+  \newpage
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Complete}
+En esta parte se incluyen 10 preguntas de complete. \textbf{Puntaje Total = \ref{CTP} puntos}.
+
+\vspace{5mm}
+\textbf{Instrucciones}: Escriba en el espacio en blanco la palabra que complete de forma correcta cada una de las frases de acuerdo con lo visto en clase. Para responder dispone ÚNICAMENTE de este grupo de conceptos, de los cuales 10 corresponden a las respuestas correctas del ejercicio. \textbf{No se repiten conceptos.}
+
+\vspace{5mm}
+\input{00-01-Complete/P01-2025C2.tex}
+\consolidatePoints{CTP}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Selección única}
+En esta parte se incluyen 7 preguntas de complete. \textbf{Puntaje Total = \ref{SUTP} puntos}.
+
+\vspace{5mm}
+\textbf{Instrucciones}: Marque con una "\textbf{X}" la letra que acompañe a la respuesta correcta, de acuerdo con lo visto en clase.
+
+\begin{enumerate}
+  \input{./00-Unidades/2025C2-SSU-E001.tex}
+  \input{./01-Vectores/2025C2-SSU-E001.tex}
+  \input{./01-Vectores/2025C2-SSU-E002.tex}
+  \input{./01-Vectores/2026C1-SSU-E001.tex}
+  \input{./02-Equilibrio/2025C2-0SSU-E001.tex}
+  \input{./03-Torque/2025C2-SSU-E001.tex}
+  \input{./03-Torque/2026C1-SSU-E001.tex}
+  \input{./04-Cinematica/2025C2-SSU-E001.tex}
+  \input{./04-Cinematica/2026C1-SSU-E001.tex}
+  \input{./05-Dinamica/2025C2-SSU-E001.tex}
+  \input{./05-Dinamica/2026C1-SSU-E001.tex}
+\end{enumerate}
+\consolidatePoints{SUTP}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Desarrollo}
+A continuación, se incluye un problema de desarrollo. \textbf{Puntaje Total = \ref{DTP} puntos}
+
+\vspace{5mm}
+\textbf{Instrucciones}: Resuelva el siguiente problema de manera clara y ordenada, muestre todos los pasos requeridos para llegar a la respuesta final.
+
+\begin{enumerate}
+	\input{05-Dinamica/2025C2-E001.tex}
+\end{enumerate}
+\consolidatePoints{DTP}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection
+\label{LastPage}
+\includepdf[
+	addtotoc={
+		1,
+		section,
+		1,
+		{Fórmulas del \thepartial},
+		formulario
+		}
+]{formulario-P\thepartialNumber.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

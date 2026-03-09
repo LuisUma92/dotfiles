@@ -1,7 +1,17 @@
 \sisetup{
-  per-mode = power
+  detect-all,
+  mode = math,
+  per-mode = power,
+  inter-unit-product = \,,
 }
 
+    % \let\oldunit\unit
+    % \renewcommand\unit{\:\oldunit}
+  % \RenewDocumentCommand{\unit}{m}
+  %   {\,\ensuremath{\left[ \si{#1} \right]}}
+  %
+  % \RenewDocumentCommand{\SI}{m m}
+  %   {#1\,\ensuremath{\left[ \si{#2} \right]}}
 
 \DeclareSIUnit\barn{b}
 \DeclareSIUnit\fbarn{fb}
@@ -21,3 +31,6 @@
 \DeclareSIUnit\denV{kg/m^3}
 \DeclareSIUnit\denA{kg/m^2}
 \DeclareSIUnit\denL{kg/m}
+
+\DeclareSIUnit\angvel{rad/s}
+\DeclareSIUnit\angace{rad/s^2}

@@ -1,0 +1,25 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+Un vector $\vec{A}$ tiene componentes $A_x = 3\,\text{m}$ y $A_y = 4\,\text{m}$.
+¿Cuál es la magnitud del vector $\vec{A}$?
+\pts[add]{3}
+\begin{enumerate}
+\item $1\,\text{m}$
+\item $3\,\text{m}$
+\item $5\,\text{m}$\rightoption
+\item $7\,\text{m}$
+\item $12\,\text{m}$
+\end{enumerate}
+}{
+  \paragraph{Solución}
+  \begin{gather*}
+    \abs{\vec{A}} = \sqrt{A_x^2 + A_y^2} \\
+    \abs{\vec{A}} = \sqrt{(3)^2 + (4)^2} \\
+    \abs{\vec{A}} = \sqrt{9 + 16} \\
+    \abs{\vec{A}} = \sqrt{25} = \SI{5}{m} \\
+  \end{gather*}
+}

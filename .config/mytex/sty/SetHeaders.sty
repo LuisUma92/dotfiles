@@ -46,6 +46,7 @@
   \fancyfoot{}
   \ifthenelse{\equal{\theunishort}{UCIMED}}{
     \fancyhead[R]{Página \thepage/\pageref*{LastPage}}
+    \fancyhead[L]{}
     \fancyfoot[L]{\textsc{\thepartial}\:-\:\classcode\:-\:\thecycle}
   }{
   \ifthenelse{\equal{\theunishort}{UCR}}{
@@ -75,26 +76,21 @@
         \textbf{\classname}
       }
     }
+    \fancyfoot[c]{\thepage}
   }{
   \ifthenelse{\equal{\theunishort}{UFide}}{
-    \setlength{\headheight}{162pt}
-    \addtolength{\textheight}{-160pt}
+    % \setlength{\headheight}{193pt}
+    % \addtolength{\textheight}{-193pt}
     \fancyhead[LO]{}
-    \fancyhead[C]{
-      \usebox{\ulogo}\\[0.5em]
-      \textbf{\theuni}\\[0.5em]
-      \textbf{\theschool}\\[0.5em]
-      \textbf{\classname}\\[0.5em]
-      \textbf{Prof. \theauthor}\\[0.5em]
-      \textbf{Caso \Roman{partialNumber} - \thedate}
-    }
+    \fancyhead[RO]{}
     \fancyfoot[C]{\thepage}
   }{
   \ifthenelse{\equal{\theunishort}{UCIMED}}{
     \setlength{\headheight}{120pt}
     \fancyhead[C]{
       \textbf{\Large{\thepartial}}\\
-      \textbf{\classname}\\[2em]
+      \textbf{\classname}\\[0.5em]
+      \textbf{Prof. \theauthor}\\[0.5em]
       \thedate \\
       \total{totalPoints}\,puntos $\leftrightarrow 100\%$ \\
     }

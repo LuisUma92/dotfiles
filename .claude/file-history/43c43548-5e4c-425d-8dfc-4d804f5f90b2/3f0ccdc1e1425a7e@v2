@@ -1,0 +1,33 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+Un automóvil parte del reposo y acelera uniformemente a $\SI{4}{\ace}$
+durante $\SI{5}{s}$; luego mantiene velocidad constante durante $\SI{10}{s}$.
+¿Cuál es la distancia total recorrida?
+\pts[add]{3}
+\begin{enumerate}
+\item $\SI{150}{m}$
+\item $\SI{200}{m}$
+\item $\SI{250}{m}$\rightoption
+\item $\SI{300}{m}$
+\item $\SI{350}{m}$
+\end{enumerate}
+}{
+  \paragraph{Solución}
+  Fase 1 (MRUA):
+  \begin{gather*}
+    v_f = v_0 + at = 0 + (4)(5) = \SI{20}{m/s} \\
+    d_1 = v_0 t + \tfrac{1}{2}at^2 = 0 + \tfrac{1}{2}(4)(5)^2 = \SI{50}{m}
+  \end{gather*}
+  Fase 2 (MRU):
+  \begin{gather*}
+    d_2 = v_f \cdot t = (20)(10) = \SI{200}{m}
+  \end{gather*}
+  Total:
+  \begin{gather*}
+    d = d_1 + d_2 = 50 + 200 = \SI{250}{m}
+  \end{gather*}
+}

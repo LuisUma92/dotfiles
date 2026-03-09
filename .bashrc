@@ -12,13 +12,14 @@ source ~/.local/share/omarchy/default/bash/rc
 
 . "$HOME/.local/share/../bin/env"
 
-export PATH=/usr/local/texlive/2025/bin/x86_64-linux:/home/luis/.spack/bin:$PATH
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:/home/luis/.spack/bin:/home/luis/.local/share/umas/bin:$PATH
 export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
 
 alias set432fm="sh /home/luis/.local/share/umas/set432fm.sh"
 alias config='/usr/bin/git --git-dir=/home/luis/.cfg/ --work-tree=/home/luis'
 alias inittexp='/home/luis/.config/mytex/inittex.sh'
+alias setup-spack=". /home/luis/.spack/share/spack/setup-env.sh"
 
 # Start the SSH agent
 # eval "$(ssh-agent -s)"

@@ -1,0 +1,16 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+Según la tercera ley de Newton, cuando un objeto A ejerce una fuerza sobre un objeto B, ¿cuál de las siguientes afirmaciones es correcta?
+\pts[add]{2}
+\begin{enumerate}
+\item B ejerce sobre A una fuerza de igual magnitud y en la misma dirección.
+\item B ejerce sobre A una fuerza de igual magnitud, misma dirección y sentido opuesto.\rightoption
+\item B ejerce sobre A una fuerza de mayor magnitud y sentido opuesto.
+\item B no ejerce ninguna fuerza sobre A si A tiene mayor masa.
+\item B ejerce sobre A una fuerza solo si ambos objetos están en contacto directo.
+\end{enumerate}
+}{}

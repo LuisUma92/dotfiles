@@ -1,0 +1,16 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+Si dos vectores tienen la misma magnitud pero direcciones opuestas, ¿cuál es el resultado de su suma vectorial?
+\pts[add]{2}
+\begin{enumerate}
+\item Un vector con el doble de la magnitud original.
+\item Un vector con la mitad de la magnitud original.
+\item Un vector perpendicular a ambos vectores originales.
+\item El vector nulo (magnitud cero).\rightoption
+\item Un vector con magnitud igual a la original.
+\end{enumerate}
+}{}

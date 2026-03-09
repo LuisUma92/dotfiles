@@ -1,0 +1,25 @@
+\geometry{
+  paperwidth=16.5cm,
+  paperheight=15.5cm,
+  left=15mm, right=15mm,
+  top=10mm, bottom=15mm,
+  includeheadfoot=false,
+  headheight=0pt,
+  headsep=0pt,
+  footskip=10mm
+}
+
+% --- Tamaño de letra tipo slide ---
+\AtBeginDocument{\fontsize{16}{19}\selectfont}
+
+\setlength{\parindent}{0pt}
+% --- Estilos TikZ para HD ---
+\tikzset{
+  line cap=round,
+  line join=round,
+  every node/.style={font=\fontsize{16}{19}\selectfont},
+  main/.style={line width=0.9pt},
+  secondary/.style={line width=0.55pt},
+  subtle/.style={line width=0.35pt},
+  myarrow/.style={-Latex, line width=0.9pt},
+}

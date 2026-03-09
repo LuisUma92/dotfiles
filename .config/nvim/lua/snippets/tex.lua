@@ -55,10 +55,13 @@ return {
   s({
     trig = "ss",
     condition = pipe({ is_math }),
+    wordTrig = false,
+    snippetType = "autosnippet",
   }, {
     t("\\scrp{"),
-    i(0),
+    i(1),
     t("}"),
+    i(0),
   }),
   s({
     trig = "gg",

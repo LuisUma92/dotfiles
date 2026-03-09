@@ -1,0 +1,26 @@
+\ifthenelse{\boolean{main}}{
+  \exa[CH]{EEE} % \cite{book}
+}{
+  % \exa{}
+}
+\question{
+Una fuerza de $60\,\text{N}$ se aplica en el extremo de una barra de
+$0.80\,\text{m}$ de longitud, formando un ángulo de $\ang{30}$ respecto a la barra.
+¿Cuál es la magnitud del torque producido respecto al punto de giro?
+\pts[add]{3}
+\begin{enumerate}
+\item $12\,\text{N}\cdot\text{m}$
+\item $18\,\text{N}\cdot\text{m}$
+\item $24\,\text{N}\cdot\text{m}$\rightoption
+\item $36\,\text{N}\cdot\text{m}$
+\item $48\,\text{N}\cdot\text{m}$
+\end{enumerate}
+}{
+  \paragraph{Solución}
+  \begin{gather*}
+    \tau = \abs{F} \abs{r} \sin(\theta) \\
+    \tau = (\SI{60}{N})\cdot (\SI{0.80}{m}) \cdot \sin(\ang{30}) \\
+    \tau = (\SI{60}{N})\cdot (\SI{0.80}{m}) \cdot (0.5) \\
+    \tau = \SI{24}{N.m} \\
+  \end{gather*}
+}
